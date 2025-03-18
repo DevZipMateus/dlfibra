@@ -4,16 +4,71 @@ import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
 import AboutSection from "@/components/AboutSection";
 import TeamSection from "@/components/TeamSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import { ArrowRight, Users, Award, History, Target, CheckCircle } from "lucide-react";
-import { useEffect, useState } from "react";
+import { CheckCircle, Clock, Award, Users, TrendingUp } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
-
+  const [counts, setCounts] = useState({
+    years: 0,
+    clients: 0,
+    satisfaction: 0,
+    professionals: 0
+  });
+  
   useEffect(() => {
     setIsVisible(true);
+    
+    // Simple counter animation
+    const interval = setInterval(() => {
+      setCounts(prevCounts => {
+        const newCounts = { ...prevCounts };
+        
+        if (newCounts.years < 15) newCounts.years += 1;
+        if (newCounts.clients < 350) newCounts.clients += 10;
+        if (newCounts.satisfaction < 98) newCounts.satisfaction += 2;
+        if (newCounts.professionals < 20) newCounts.professionals += 1;
+        
+        // Stop the interval when all counts reach their targets
+        if (newCounts.years === 15 && newCounts.clients === 350 && 
+            newCounts.satisfaction === 98 && newCounts.professionals === 20) {
+          clearInterval(interval);
+        }
+        
+        return newCounts;
+      });
+    }, 100);
+    
+    return () => clearInterval(interval);
   }, []);
+
+  const milestones = [
+    {
+      year: "2008",
+      title: "Fundação da Empresa",
+      description: "Iniciamos nossas atividades com um pequeno escritório e grandes sonhos."
+    },
+    {
+      year: "2012",
+      title: "Expansão de Serviços",
+      description: "Ampliamos nossa oferta de serviços para incluir consultoria fiscal e tributária."
+    },
+    {
+      year: "2015",
+      title: "Novo Escritório",
+      description: "Mudamos para um escritório maior para acomodar nossa equipe em crescimento."
+    },
+    {
+      year: "2018",
+      title: "Transformação Digital",
+      description: "Implementamos tecnologias avançadas para otimizar nossos processos contábeis."
+    },
+    {
+      year: "2023",
+      title: "Certificação de Qualidade",
+      description: "Recebemos certificação por excelência em serviços contábeis e atendimento ao cliente."
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white">
@@ -21,51 +76,63 @@ const About = () => {
       <main>
         <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-blue-50 to-white">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto text-center">
               <span className={`inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-blue-600 mb-6 opacity-0 ${isVisible ? 'animate-fadeIn' : ''}`}>
                 Sobre Nós
               </span>
               <h1 className={`heading-xl mb-6 opacity-0 ${isVisible ? 'animate-slideDown' : ''}`}>
-                Conheça a <span className="text-gradient">ContaConnection</span>
+                Compromisso com <span className="text-gradient">excelência</span> e resultados
               </h1>
               <p className={`subtitle mx-auto mb-10 opacity-0 ${isVisible ? 'animate-slideDown delay-200' : ''}`}>
-                Somos um escritório de contabilidade com mais de 15 anos de experiência, 
-                dedicados a oferecer soluções contábeis completas e personalizadas para empresas 
-                de todos os tamanhos e segmentos.
+                Com mais de 15 anos de experiência, oferecemos soluções contábeis personalizadas 
+                e inovadoras para empresas de todos os portes e segmentos.
               </p>
             </div>
-
-            <div className={`mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-6 opacity-0 ${isVisible ? 'animate-slideUp delay-400' : ''}`}>
-              <div className="glass-card rounded-xl p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
-                  <Users className="w-7 h-7 text-blue-600" />
+          </div>
+        </section>
+        
+        <AboutSection />
+        
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16">
+              <h2 className="heading-lg mb-4">Nossos Números</h2>
+              <p className="subtitle mx-auto">
+                Resultados que demonstram nosso compromisso com a qualidade e satisfação dos clientes.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+                <div className="w-14 h-14 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Clock className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Equipe Qualificada</h3>
-                <p className="text-gray-600">Profissionais experientes e constantemente atualizados.</p>
+                <h3 className="text-3xl font-bold text-blue-600 mb-2">{counts.years}</h3>
+                <p className="text-gray-600">Anos de Experiência</p>
               </div>
               
-              <div className="glass-card rounded-xl p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
-                  <Award className="w-7 h-7 text-blue-600" />
+              <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+                <div className="w-14 h-14 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Users className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Excelência</h3>
-                <p className="text-gray-600">Comprometimento com a qualidade em todos os serviços.</p>
+                <h3 className="text-3xl font-bold text-blue-600 mb-2">{counts.clients}+</h3>
+                <p className="text-gray-600">Clientes Atendidos</p>
               </div>
               
-              <div className="glass-card rounded-xl p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
-                  <History className="w-7 h-7 text-blue-600" />
+              <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+                <div className="w-14 h-14 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                  <Award className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Tradição</h3>
-                <p className="text-gray-600">Mais de 15 anos de experiência no mercado contábil.</p>
+                <h3 className="text-3xl font-bold text-blue-600 mb-2">{counts.satisfaction}%</h3>
+                <p className="text-gray-600">Satisfação dos Clientes</p>
               </div>
               
-              <div className="glass-card rounded-xl p-6 text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
-                  <Target className="w-7 h-7 text-blue-600" />
+              <div className="bg-white p-6 rounded-xl shadow-sm text-center">
+                <div className="w-14 h-14 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                  <TrendingUp className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Foco no Cliente</h3>
-                <p className="text-gray-600">Soluções personalizadas para cada necessidade.</p>
+                <h3 className="text-3xl font-bold text-blue-600 mb-2">{counts.professionals}</h3>
+                <p className="text-gray-600">Profissionais</p>
               </div>
             </div>
           </div>
@@ -73,75 +140,33 @@ const About = () => {
         
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <h2 className="heading-lg text-center mb-12">Nossa História</h2>
-              
-              <div className="space-y-12">
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="md:w-1/3">
-                    <div className="rounded-xl overflow-hidden h-full">
-                      <img 
-                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" 
-                        alt="Fundação da ContaConnection" 
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div className="md:w-2/3">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Nossa Fundação</h3>
-                    <p className="text-gray-600 mb-4">
-                      A ContaConnection nasceu em 2008 do sonho de oferecer serviços contábeis acessíveis e de qualidade para empreendedores e empresas em crescimento. Começamos com uma pequena equipe e um grande propósito: facilitar a vida contábil dos nossos clientes.
-                    </p>
-                    <p className="text-gray-600">
-                      Desde o início, adotamos uma abordagem consultiva, tratando cada cliente como único e oferecendo soluções personalizadas para suas necessidades específicas.
-                    </p>
-                  </div>
-                </div>
+            <div className="text-center mb-16">
+              <h2 className="heading-lg mb-4">Nossa Trajetória</h2>
+              <p className="subtitle mx-auto">
+                Conheça os marcos importantes da nossa história.
+              </p>
+            </div>
+            
+            <div className="max-w-4xl mx-auto">
+              <div className="relative">
+                {/* Timeline line */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-200"></div>
                 
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="md:w-2/3 order-2 md:order-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Crescimento e Expansão</h3>
-                    <p className="text-gray-600 mb-4">
-                      Ao longo dos anos, expandimos nossa equipe e nossos serviços, sempre mantendo nosso compromisso com a qualidade e a atenção personalizada. Desenvolvemos expertise em diversos setores e passamos a atender empresas de todos os portes.
-                    </p>
-                    <p className="text-gray-600">
-                      Em 2015, iniciamos nosso processo de transformação digital, implementando tecnologias avançadas para oferecer serviços ainda mais eficientes e acessíveis aos nossos clientes.
-                    </p>
-                  </div>
-                  <div className="md:w-1/3 order-1 md:order-2">
-                    <div className="rounded-xl overflow-hidden h-full">
-                      <img 
-                        src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80" 
-                        alt="Crescimento da empresa" 
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
+                {/* Timeline items */}
+                {milestones.map((milestone, index) => (
+                  <div key={index} className={`relative z-10 mb-12 ${index % 2 === 0 ? 'md:ml-auto md:pl-16 md:pr-0' : 'md:mr-auto md:pr-16 md:pl-0'} md:w-1/2 pl-12`}>
+                    {/* Timeline dot */}
+                    <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/3 w-8 h-8 rounded-full bg-blue-500 border-4 border-white flex items-center justify-center">
+                      <span className="text-xs font-bold text-white">{milestone.year.slice(2)}</span>
+                    </div>
+                    
+                    <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                      <span className="text-sm font-semibold text-blue-600 block mb-2">{milestone.year}</span>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{milestone.title}</h3>
+                      <p className="text-gray-600">{milestone.description}</p>
                     </div>
                   </div>
-                </div>
-                
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="md:w-1/3">
-                    <div className="rounded-xl overflow-hidden h-full">
-                      <img 
-                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80" 
-                        alt="ContaConnection hoje" 
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                  <div className="md:w-2/3">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Onde Estamos Hoje</h3>
-                    <p className="text-gray-600 mb-4">
-                      Hoje, a ContaConnection é reconhecida como uma referência no setor contábil, unindo tradição e inovação para oferecer os melhores serviços aos nossos clientes. Contamos com uma equipe multidisciplinar de mais de 30 profissionais dedicados.
-                    </p>
-                    <p className="text-gray-600">
-                      Nosso compromisso com a qualidade, a ética e a satisfação do cliente permanece o mesmo desde o primeiro dia, e continua a impulsionar tudo o que fazemos.
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -149,75 +174,103 @@ const About = () => {
         
         <section className="py-16 bg-blue-50">
           <div className="container mx-auto px-4">
-            <h2 className="heading-lg text-center mb-12">Nossos Valores</h2>
+            <div className="text-center mb-16">
+              <h2 className="heading-lg mb-4">Nossos Valores</h2>
+              <p className="subtitle mx-auto">
+                Princípios que norteiam nossa atuação e relacionamento com os clientes.
+              </p>
+            </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="bg-white p-8 rounded-xl shadow-sm">
                 <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
-                  <CheckCircle className="w-6 h-6 text-blue-600" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-blue-600">
+                    <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+                  </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Confiabilidade</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Integridade</h3>
                 <p className="text-gray-600">
-                  Construímos relacionamentos baseados na confiança, integridade e transparência, honrando nossos compromissos e mantendo a confidencialidade das informações dos clientes.
+                  Trabalhamos com transparência e ética em todas as nossas ações, construindo 
+                  relacionamentos baseados na confiança e no respeito.
                 </p>
               </div>
               
-              <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="bg-white p-8 rounded-xl shadow-sm">
                 <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
-                  <CheckCircle className="w-6 h-6 text-blue-600" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-blue-600">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Excelência</h3>
                 <p className="text-gray-600">
-                  Buscamos a excelência em tudo o que fazemos, desde a qualidade dos nossos serviços até o atendimento aos clientes, superando expectativas e estabelecendo novos padrões.
+                  Buscamos a excelência em tudo o que fazemos, investindo em tecnologia, 
+                  capacitação e processos que garantem a qualidade dos nossos serviços.
                 </p>
               </div>
               
-              <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="bg-white p-8 rounded-xl shadow-sm">
                 <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
-                  <CheckCircle className="w-6 h-6 text-blue-600" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-blue-600">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m16 12-4 4-4-4" />
+                    <path d="M12 8v8" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Compromisso</h3>
+                <p className="text-gray-600">
+                  Mantemos um compromisso inabalável com os resultados e o sucesso dos 
+                  nossos clientes, oferecendo soluções que agregam valor real aos seus negócios.
+                </p>
+              </div>
+              
+              <div className="bg-white p-8 rounded-xl shadow-sm">
+                <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-blue-600">
+                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+                  </svg>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Inovação</h3>
                 <p className="text-gray-600">
-                  Abraçamos a inovação e as novas tecnologias para oferecer soluções mais eficientes e acessíveis, adaptando-nos continuamente às mudanças do mercado.
+                  Estamos sempre em busca de novas soluções e tecnologias que possam 
+                  melhorar nossos processos e trazer vantagens competitivas para nossos clientes.
                 </p>
               </div>
               
-              <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="bg-white p-8 rounded-xl shadow-sm">
                 <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
-                  <CheckCircle className="w-6 h-6 text-blue-600" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-blue-600">
+                    <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2" />
+                    <rect width="18" height="18" x="3" y="4" rx="2" />
+                    <circle cx="12" cy="10" r="2" />
+                    <line x1="8" x2="8" y1="2" y2="4" />
+                    <line x1="16" x2="16" y1="2" y2="4" />
+                  </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Empatia</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Acessibilidade</h3>
                 <p className="text-gray-600">
-                  Colocamo-nos no lugar dos nossos clientes, compreendendo suas necessidades e desafios para oferecer um atendimento humanizado e soluções personalizadas.
+                  Mantemos canais de comunicação abertos e eficientes, garantindo que 
+                  nossos clientes tenham acesso facilitado às informações e à nossa equipe.
                 </p>
               </div>
               
-              <div className="bg-white rounded-xl p-8 shadow-sm">
+              <div className="bg-white p-8 rounded-xl shadow-sm">
                 <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
-                  <CheckCircle className="w-6 h-6 text-blue-600" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-blue-600">
+                    <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" />
+                    <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+                  </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Responsabilidade</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Relacionamento</h3>
                 <p className="text-gray-600">
-                  Assumimos responsabilidade pelas nossas ações e decisões, comprometendo-nos com práticas éticas e sustentáveis em todas as nossas operações.
-                </p>
-              </div>
-              
-              <div className="bg-white rounded-xl p-8 shadow-sm">
-                <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
-                  <CheckCircle className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Crescimento</h3>
-                <p className="text-gray-600">
-                  Incentivamos o crescimento contínuo dos nossos colaboradores e clientes, investindo em desenvolvimento profissional e estabelecendo parcerias duradouras.
+                  Valorizamos o relacionamento próximo e duradouro com nossos clientes, 
+                  colaboradores e parceiros, baseado na confiança e no respeito mútuo.
                 </p>
               </div>
             </div>
           </div>
         </section>
         
-        <AboutSection />
         <TeamSection />
-        <TestimonialsSection />
       </main>
       <Footer />
       <FloatingButton />

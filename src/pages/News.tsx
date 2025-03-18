@@ -3,102 +3,195 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
 import NewsSection from "@/components/NewsSection";
-import { Calendar, ArrowRight, ChevronLeft, ChevronRight, Search } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Search, Calendar, ArrowRight, User } from "lucide-react";
 import { useState, useEffect } from "react";
 
-const articles = [
+// Importe news data from the NewsSection component
+const newsItems = [
   {
     id: 1,
     title: "Como as taxas de juros afetam os Pequenos Negócios",
-    summary: "Entenda como as flutuações nas taxas de juros podem impactar diretamente o fluxo de caixa e as operações das micro e pequenas empresas.",
-    content: "As taxas de juros têm um papel fundamental na economia e afetam diretamente o dia a dia das micro e pequenas empresas. Quando as taxas sobem, o custo do crédito aumenta, impactando negativamente os empréstimos, financiamentos e capital de giro. Isso pode resultar em redução de investimentos e desaceleração do crescimento. Por outro lado, quando as taxas caem, há estímulo ao consumo e maior facilidade para obtenção de crédito, o que pode impulsionar os negócios. É essencial que empresários acompanhem as tendências das taxas de juros e planejem suas estratégias financeiras considerando esses ciclos econômicos.",
-    date: "10 de Maio, 2023",
-    image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    author: "Carlos Mendes",
-    category: "Finanças"
+    excerpt: "As taxas de juros têm um impacto significativo nas micro e pequenas empresas. Entenda como se preparar para cenários de alta ou baixa.",
+    image: "/placeholder.svg",
+    date: "15 de Maio, 2023",
+    author: "Maria Silva",
+    category: "Economia",
+    content: `
+      <p>As micro e pequenas empresas são particularmente sensíveis às flutuações nas taxas de juros, pois frequentemente dependem de financiamentos para suas operações e expansões. Quando as taxas sobem, o custo do capital aumenta, reduzindo a capacidade de investimento e potencialmente afetando a lucratividade.</p>
+      
+      <h3>Impactos diretos das altas taxas</h3>
+      <p>O aumento das taxas de juros eleva o custo de empréstimos e financiamentos, o que pode comprometer o fluxo de caixa das pequenas empresas. Isso pode levar a uma desaceleração nos investimentos em novos equipamentos, contratações ou expansão de atividades.</p>
+      
+      <h3>Estratégias para períodos de alta</h3>
+      <p>Durante períodos de taxas de juros elevadas, é fundamental que os pequenos negócios revisem seus planos financeiros, priorizem a redução de dívidas existentes e busquem alternativas de financiamento com custos mais competitivos, como linhas específicas para MPEs ou programas governamentais de incentivo.</p>
+      
+      <h3>Oportunidades em cenários de baixa</h3>
+      <p>Por outro lado, quando as taxas de juros diminuem, criam-se oportunidades para refinanciamento de dívidas em condições mais favoráveis e para a realização de investimentos estratégicos que estavam represados.</p>
+      
+      <h3>Planejamento é essencial</h3>
+      <p>Independentemente do cenário, o planejamento financeiro sólido é essencial. Manter uma reserva de emergência, diversificar fontes de receita e estar atento às tendências do mercado são práticas que ajudam a proteger o negócio das oscilações econômicas.</p>
+    `
   },
   {
     id: 2,
     title: "Bancos passam a oferecer parcelamento do saldo total",
-    summary: "O setor de pagamentos passa a oferecer uma nova opção para os consumidores: o parcelamento do saldo total da fatura do cartão de crédito.",
-    content: "Os principais bancos do país estão implementando uma nova modalidade de crédito: o parcelamento do saldo total da fatura do cartão. Esta opção permite que o cliente divida o valor total da fatura em parcelas mensais, com taxas de juros geralmente menores que as do crédito rotativo tradicional. A medida surge como uma alternativa para reduzir o endividamento dos consumidores e oferecer melhores condições de pagamento. No entanto, é importante que os usuários compreendam completamente os termos e condições, incluindo as taxas de juros aplicadas e o impacto no limite do cartão durante o período de parcelamento.",
-    date: "5 de Maio, 2023",
-    image: "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    author: "Mariana Alves",
-    category: "Finanças"
+    excerpt: "Uma nova opção de parcelamento do saldo total é a mais nova aposta do setor de pagamentos para lidar com taxas de juros elevadas.",
+    image: "/placeholder.svg",
+    date: "10 de Maio, 2023",
+    author: "João Paulo",
+    category: "Finanças",
+    content: `
+      <p>Em um contexto de juros elevados, instituições financeiras têm buscado alternativas para oferecer maior flexibilidade aos clientes. Uma dessas inovações é o parcelamento do saldo total da fatura do cartão de crédito, que permite ao consumidor dividir o valor total devido em parcelas fixas, com taxas de juros mais baixas que as do rotativo.</p>
+      
+      <h3>Como funciona</h3>
+      <p>O parcelamento do saldo total permite que o cliente transforme o valor integral da fatura em um financiamento com parcelas fixas, juros menores que os do rotativo e prazo definido para quitação, geralmente entre 6 e 24 meses, dependendo da instituição.</p>
+      
+      <h3>Vantagens para os consumidores</h3>
+      <p>Esta modalidade oferece previsibilidade de pagamentos, taxas de juros significativamente menores que as do rotativo do cartão, e a possibilidade de reorganizar o orçamento sem comprometer todo o limite do cartão.</p>
+      
+      <h3>Impacto para as empresas</h3>
+      <p>Para as empresas, especialmente pequenos negócios que dependem de cartões corporativos para gerenciar despesas, esta opção pode representar uma ferramenta importante de gestão financeira, permitindo diluir grandes desembolsos em períodos mais longos.</p>
+      
+      <h3>Cuidados necessários</h3>
+      <p>Apesar das vantagens, é importante analisar as condições oferecidas, como taxas de juros, prazos e eventual incidência de IOF. O parcelamento deve ser visto como um recurso pontual, não como solução permanente para problemas de fluxo de caixa.</p>
+    `
   },
   {
     id: 3,
     title: "Conexão entre loja física e online no varejo é tendência",
-    summary: "O varejo se reinventa para atrair e conquistar clientes, especialmente nas datas comemorativas que movimentam o setor durante o ano.",
-    content: "A integração entre canais físicos e digitais, conhecida como estratégia omnichannel, está se consolidando como uma tendência irreversível no varejo. As empresas estão percebendo que os consumidores modernos transitam naturalmente entre diferentes plataformas de compra e esperam uma experiência consistente e conectada. Recursos como "compre online e retire na loja", "devoluções cross-channel" e sistemas unificados de estoque são exemplos dessa integração. Lojistas que conseguem oferecer essa experiência fluida têm observado aumento no valor médio das compras e maior fidelização de clientes. Para pequenos varejistas, investir em tecnologias que permitam essa integração se tornou essencial para manter a competitividade no mercado.",
-    date: "1 de Maio, 2023",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    author: "Paulo Rodrigues",
-    category: "Varejo"
+    excerpt: "O varejo está se reinventando para atrair e conquistar clientes, especialmente em datas comemorativas.",
+    image: "/placeholder.svg",
+    date: "05 de Maio, 2023",
+    author: "Ana Luiza",
+    category: "Varejo",
+    content: `
+      <p>A integração entre os canais físicos e digitais, conhecida como omnicanalidade, deixou de ser uma tendência futura e se tornou uma necessidade presente para o varejo. Esta conexão permite uma experiência de compra mais fluida e personalizada, respondendo às expectativas dos consumidores contemporâneos.</p>
+      
+      <h3>O novo comportamento do consumidor</h3>
+      <p>Estudos mostram que os consumidores modernos utilizam múltiplos canais durante sua jornada de compra. Eles podem pesquisar online, experimentar na loja física e finalizar a compra pelo aplicativo. Esta fluidez exige que as empresas ofereçam uma experiência consistente em todos os pontos de contato.</p>
+      
+      <h3>Estratégias de integração</h3>
+      <p>Entre as estratégias mais eficazes estão o "clique e retire" (compra online com retirada na loja), estoque unificado que permite verificar disponibilidade em tempo real, e programas de fidelidade que funcionam tanto nas lojas físicas quanto nas plataformas digitais.</p>
+      
+      <h3>Tecnologias facilitadoras</h3>
+      <p>Diversas tecnologias têm apoiado esta transformação, como sistemas de gestão integrados, aplicativos de realidade aumentada que permitem "experimentar" produtos virtualmente, e análise de dados para personalização da experiência do cliente.</p>
+      
+      <h3>Desafios para pequenos negócios</h3>
+      <p>Para pequenas e médias empresas, implementar uma estratégia omnichannel pode parecer desafiador, mas existem soluções escaláveis que permitem uma adoção gradual, começando por integrações básicas como inventário unificado e presença consistente nas redes sociais.</p>
+    `
   },
   {
     id: 4,
-    title: "Novas regras para o MEI entram em vigor em 2023",
-    summary: "Confira as mudanças nas regras para Microempreendedores Individuais que passam a valer neste ano e como elas podem afetar o seu negócio.",
-    content: "O programa do Microempreendedor Individual (MEI) passou por diversas atualizações em 2023, incluindo mudanças no limite de faturamento anual, que foi ajustado para acompanhar a inflação. Além disso, novas atividades foram incluídas no cadastro permitido para MEIs, ampliando as possibilidades para pequenos empreendedores. Outra novidade importante é a obrigatoriedade da Declaração Anual do MEI em formato digital, o que exigirá maior familiaridade com ferramentas tecnológicas. As multas por atraso nas obrigações fiscais também foram atualizadas. É fundamental que os microempreendedores se mantenham informados sobre essas mudanças para garantir a regularidade de seus negócios e evitar penalidades.",
+    title: "Governo anuncia novo pacote de medidas para apoiar pequenas empresas",
+    excerpt: "Medidas incluem linhas de crédito com juros reduzidos e simplificação tributária para micro e pequenas empresas.",
+    image: "/placeholder.svg",
     date: "28 de Abril, 2023",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    author: "Amanda Soares",
-    category: "Legislação"
+    author: "Carlos Eduardo",
+    category: "Legislação",
+    content: `
+      <p>O governo federal anunciou um novo conjunto de medidas para apoiar micro e pequenas empresas, com foco em facilitar o acesso ao crédito e reduzir a burocracia. O pacote é visto como uma resposta aos desafios enfrentados pelo setor após os impactos econômicos dos últimos anos.</p>
+      
+      <h3>Linhas de crédito especiais</h3>
+      <p>Entre as principais medidas está a ampliação de linhas de crédito com taxas de juros subsidiadas, operacionalizadas através de bancos públicos e com garantias facilitadas para pequenos empreendedores.</p>
+      
+      <h3>Simplificação tributária</h3>
+      <p>O pacote também inclui medidas de simplificação tributária, com consolidação de obrigações acessórias e ampliação do limite de faturamento para empresas do Simples Nacional, além de um período de carência para regularização de pendências fiscais.</p>
+      
+      <h3>Capacitação digital</h3>
+      <p>Reconhecendo a importância da digitalização para a competitividade, o governo anunciou programas de capacitação em tecnologias digitais e subsídios para aquisição de soluções tecnológicas por micro e pequenas empresas.</p>
+      
+      <h3>Expectativas do mercado</h3>
+      <p>Associações empresariais receberam positivamente as medidas, mas apontam que ainda são necessárias reformas estruturais para melhorar significativamente o ambiente de negócios no país. Analistas estimam que o pacote pode beneficiar mais de 5 milhões de empresas.</p>
+    `
   },
   {
     id: 5,
-    title: "Estratégias para gestão de fluxo de caixa em pequenas empresas",
-    summary: "Aprenda técnicas eficientes para gerenciar o fluxo de caixa da sua empresa e garantir a saúde financeira do negócio mesmo em tempos desafiadores.",
-    content: "Uma gestão eficiente do fluxo de caixa é vital para a sobrevivência e crescimento de pequenas empresas. Entre as estratégias essenciais estão: acompanhamento diário das entradas e saídas, estabelecimento de um fundo de reserva para emergências, negociação de prazos mais longos com fornecedores e mais curtos com clientes, e uso de ferramentas digitais para automação e controle financeiro. É igualmente importante separar as finanças pessoais das empresariais, realizar projeções de fluxo de caixa para períodos futuros e revisar periodicamente contratos e despesas fixas. Empresas que implementam essas práticas tendem a ter maior resiliência durante crises econômicas e melhor capacidade de investimento em oportunidades de crescimento.",
-    date: "25 de Abril, 2023",
-    image: "https://images.unsplash.com/photo-1565372595781-69119f6204be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    author: "Roberto Castro",
-    category: "Gestão"
+    title: "Novas regras contábeis para PMEs entram em vigor em 2023",
+    excerpt: "O Conselho Federal de Contabilidade aprovou mudanças nas normas contábeis aplicáveis às pequenas e médias empresas.",
+    image: "/placeholder.svg",
+    date: "20 de Abril, 2023",
+    author: "Roberta Almeida",
+    category: "Contabilidade",
+    content: `
+      <p>O Conselho Federal de Contabilidade (CFC) aprovou importantes atualizações nas Normas Brasileiras de Contabilidade aplicáveis às Pequenas e Médias Empresas (NBC TG 1000), alinhando-as às melhores práticas internacionais e às necessidades específicas deste segmento empresarial.</p>
+      
+      <h3>Principais mudanças</h3>
+      <p>As atualizações incluem simplificações nos métodos de reconhecimento e mensuração de ativos e passivos, novos critérios para apresentação de demonstrações financeiras, e orientações mais claras sobre operações específicas como arrendamentos e instrumentos financeiros.</p>
+      
+      <h3>Objetivos das alterações</h3>
+      <p>As mudanças visam aumentar a transparência e comparabilidade das demonstrações financeiras, facilitar o acesso a financiamentos, e proporcionar informações mais relevantes para a tomada de decisões gerenciais.</p>
+      
+      <h3>Impacto para as empresas</h3>
+      <p>Empresas afetadas precisarão adaptar seus sistemas e processos contábeis, atualizar políticas internas e possivelmente investir em capacitação. Contudo, os benefícios de longo prazo incluem melhor gestão financeira e maior credibilidade junto a investidores e credores.</p>
+      
+      <h3>Cronograma de implementação</h3>
+      <p>As novas regras entram em vigor oficialmente para exercícios iniciados a partir de janeiro de 2023, mas o CFC recomenda que as empresas iniciem o processo de adaptação o quanto antes, possivelmente com implementação antecipada voluntária.</p>
+    `
   },
   {
     id: 6,
-    title: "Guia completo sobre o SPED Fiscal para empresas",
-    summary: "Entenda o que é o SPED Fiscal, sua importância para o cumprimento das obrigações tributárias e como implementá-lo corretamente na sua empresa.",
-    content: "O Sistema Público de Escrituração Digital (SPED) Fiscal revolucionou a forma como as empresas brasileiras cumprem suas obrigações tributárias. Este sistema digital integra os processos de coleta, validação e transmissão de informações fiscais, substituindo os antigos livros fiscais em papel. Para implementá-lo corretamente, as empresas devem investir em sistemas de gestão compatíveis, garantir a qualidade dos dados inseridos e manter uma equipe capacitada. Os benefícios incluem redução de erros, otimização de processos, diminuição de custos com impressão e armazenamento, além de melhor relacionamento com o fisco. No entanto, desafios como a complexidade da legislação e a necessidade de atualização constante dos sistemas exigem atenção especial dos gestores.",
-    date: "20 de Abril, 2023",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-    author: "Lucia Fernandes",
-    category: "Fiscal"
+    title: "Inteligência Artificial: como pequenas empresas podem aproveitar esta tecnologia",
+    excerpt: "Conheça aplicações práticas da Inteligência Artificial que podem ser implementadas por empresas de todos os portes.",
+    image: "/placeholder.svg",
+    date: "15 de Abril, 2023",
+    author: "Marcos Vinicius",
+    category: "Tecnologia",
+    content: `
+      <p>A Inteligência Artificial (IA) não é mais exclusividade de grandes corporações com orçamentos robustos para tecnologia. Hoje, existem soluções acessíveis e prontas para uso que permitem que pequenas e médias empresas também se beneficiem desta tecnologia transformadora.</p>
+      
+      <h3>Aplicações práticas para PMEs</h3>
+      <p>Entre as aplicações mais viáveis estão chatbots para atendimento ao cliente, ferramentas de análise de dados para identificar tendências de vendas, sistemas de recomendação para e-commerce, e automação de tarefas administrativas repetitivas.</p>
+      
+      <h3>Benefícios esperados</h3>
+      <p>A implementação de soluções de IA pode resultar em redução de custos operacionais, melhoria na experiência do cliente, insights valiosos sobre o negócio e liberação da equipe para atividades estratégicas que requerem criatividade e raciocínio humano.</p>
+      
+      <h3>Por onde começar</h3>
+      <p>Especialistas recomendam que pequenas empresas iniciem com soluções específicas para problemas bem definidos, utilizando ferramentas já existentes no mercado, muitas delas com modelos de preço baseados em uso, o que reduz a barreira de entrada.</p>
+      
+      <h3>Desafios e considerações</h3>
+      <p>Os principais desafios incluem a necessidade de dados de qualidade, questões relacionadas à privacidade e segurança da informação, e a importância de uma cultura organizacional aberta à inovação e ao aprendizado contínuo.</p>
+    `
   }
 ];
 
 const News = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredArticles, setFilteredArticles] = useState(articles);
-  const [currentPage, setCurrentPage] = useState(1);
   const [isVisible, setIsVisible] = useState(false);
-  const articlesPerPage = 4;
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredNews, setFilteredNews] = useState(newsItems);
+  const [selectedArticle, setSelectedArticle] = useState(null);
   
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
+  
   useEffect(() => {
-    const results = articles.filter(article => 
-      article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      article.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      article.category.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredArticles(results);
-    setCurrentPage(1);
+    if (searchTerm) {
+      const filtered = newsItems.filter(
+        item => 
+          item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredNews(filtered);
+    } else {
+      setFilteredNews(newsItems);
+    }
   }, [searchTerm]);
   
-  // Get current articles
-  const indexOfLastArticle = currentPage * articlesPerPage;
-  const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
-  const currentArticles = filteredArticles.slice(indexOfFirstArticle, indexOfLastArticle);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // Search is already handled by the useEffect above
+  };
   
-  // Change page
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  const handleArticleSelect = (article) => {
+    setSelectedArticle(article);
+    window.scrollTo(0, 0);
+  };
   
+  const handleBackToList = () => {
+    setSelectedArticle(null);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -107,130 +200,137 @@ const News = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <span className={`inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-blue-600 mb-6 opacity-0 ${isVisible ? 'animate-fadeIn' : ''}`}>
-                Blog e Notícias
+                Notícias
               </span>
               <h1 className={`heading-xl mb-6 opacity-0 ${isVisible ? 'animate-slideDown' : ''}`}>
-                Acompanhe nosso <span className="text-gradient">blog</span> e fique por dentro
+                Fique por dentro das <span className="text-gradient">novidades</span>
               </h1>
               <p className={`subtitle mx-auto mb-10 opacity-0 ${isVisible ? 'animate-slideDown delay-200' : ''}`}>
-                Artigos, notícias e atualizações sobre contabilidade, tributação, finanças
-                e outros temas relevantes para o seu negócio.
+                Acompanhe as últimas notícias e artigos sobre contabilidade, finanças, 
+                legislação e outros temas relevantes para o seu negócio.
               </p>
               
-              <div className={`max-w-xl mx-auto opacity-0 ${isVisible ? 'animate-slideUp delay-300' : ''}`}>
-                <div className="relative">
-                  <input
-                    type="text"
-                    placeholder="Pesquisar artigos..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full px-4 py-3 pl-12 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-colors"
-                  />
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
-                </div>
-              </div>
+              <form onSubmit={handleSearch} className={`max-w-2xl mx-auto relative opacity-0 ${isVisible ? 'animate-slideUp delay-400' : ''}`}>
+                <input
+                  type="text"
+                  placeholder="Pesquisar notícias..."
+                  className="w-full h-14 px-6 py-3 rounded-full border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className="absolute right-2 top-2 h-10 w-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                >
+                  <Search className="w-5 h-5" />
+                </button>
+              </form>
             </div>
           </div>
         </section>
         
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-8 mb-12">
-              {currentArticles.map((article) => (
-                <div key={article.id} className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                  <div className="flex flex-col md:flex-row">
-                    <div className="md:w-2/5 h-60 md:h-auto">
+            {selectedArticle ? (
+              <div className="max-w-3xl mx-auto">
+                <button
+                  onClick={handleBackToList}
+                  className="flex items-center text-blue-600 hover:text-blue-800 mb-6 transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 mr-1">
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="M19 12H5" />
+                  </svg>
+                  Voltar para a lista
+                </button>
+                
+                <article>
+                  <div className="mb-6 pb-6 border-b border-gray-200">
+                    <h1 className="text-3xl font-bold text-gray-900 mb-4">{selectedArticle.title}</h1>
+                    
+                    <div className="flex flex-wrap items-center text-sm text-gray-600 mb-6">
+                      <div className="flex items-center mr-6 mb-2">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        <span>{selectedArticle.date}</span>
+                      </div>
+                      
+                      <div className="flex items-center mr-6 mb-2">
+                        <User className="w-4 h-4 mr-1" />
+                        <span>{selectedArticle.author}</span>
+                      </div>
+                      
+                      <div className="mb-2">
+                        <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
+                          {selectedArticle.category}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="aspect-w-16 aspect-h-9 w-full rounded-xl overflow-hidden mb-6">
                       <img 
-                        src={article.image} 
-                        alt={article.title} 
+                        src={selectedArticle.image} 
+                        alt={selectedArticle.title}
                         className="w-full h-full object-cover"
-                        loading="lazy"
                       />
                     </div>
-                    <div className="md:w-3/5 p-6">
-                      <div className="flex items-center mb-3">
-                        <span className="text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-                          {article.category}
-                        </span>
-                        <div className="flex items-center text-sm text-gray-500 ml-4">
-                          <Calendar className="w-4 h-4 mr-2" />
-                          <span>{article.date}</span>
+                  </div>
+                  
+                  <div className="prose prose-blue prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: selectedArticle.content }} />
+                </article>
+              </div>
+            ) : (
+              <>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                  {filteredNews.length > 0 ? (
+                    filteredNews.map((article) => (
+                      <div key={article.id} className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                        <div className="aspect-w-16 aspect-h-9">
+                          <img 
+                            src={article.image} 
+                            alt={article.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="p-6">
+                          <div className="flex items-center text-sm text-gray-600 mb-3">
+                            <Calendar className="w-4 h-4 mr-1" />
+                            <span className="mr-4">{article.date}</span>
+                            <span className="px-2 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
+                              {article.category}
+                            </span>
+                          </div>
+                          
+                          <h3 className="text-xl font-bold text-gray-900 mb-2">
+                            {article.title}
+                          </h3>
+                          
+                          <p className="text-gray-600 mb-4 line-clamp-3">
+                            {article.excerpt}
+                          </p>
+                          
+                          <button
+                            onClick={() => handleArticleSelect(article)}
+                            className="flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors"
+                          >
+                            Ler mais
+                            <ArrowRight className="w-4 h-4 ml-1" />
+                          </button>
                         </div>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">{article.title}</h3>
-                      <p className="text-gray-600 mb-4 line-clamp-3">{article.summary}</p>
-                      <div className="flex items-center justify-between mt-auto">
-                        <span className="text-gray-500 text-sm">Por {article.author}</span>
-                        <Link to={`/news/${article.id}`} className="button-text inline-flex items-center">
-                          Ler mais
-                          <ArrowRight className="ml-1 w-4 h-4" />
-                        </Link>
-                      </div>
+                    ))
+                  ) : (
+                    <div className="col-span-full text-center py-12">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">Nenhuma notícia encontrada</h3>
+                      <p className="text-gray-600">Tente usar outros termos na sua pesquisa.</p>
                     </div>
-                  </div>
+                  )}
                 </div>
-              ))}
-            </div>
-            
-            {/* Pagination */}
-            {filteredArticles.length > articlesPerPage && (
-              <div className="flex justify-center mt-8">
-                <button
-                  onClick={() => paginate(currentPage > 1 ? currentPage - 1 : 1)}
-                  disabled={currentPage === 1}
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center mr-2 ${
-                    currentPage === 1 
-                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
-                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors'
-                  }`}
-                  aria-label="Página anterior"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                
-                {Array.from({ length: Math.ceil(filteredArticles.length / articlesPerPage) }).map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => paginate(index + 1)}
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center mx-1 ${
-                      currentPage === index + 1
-                        ? 'bg-blue-500 text-white'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors'
-                    }`}
-                  >
-                    {index + 1}
-                  </button>
-                ))}
-                
-                <button
-                  onClick={() => paginate(currentPage < Math.ceil(filteredArticles.length / articlesPerPage) ? currentPage + 1 : currentPage)}
-                  disabled={currentPage === Math.ceil(filteredArticles.length / articlesPerPage)}
-                  className={`w-10 h-10 rounded-lg flex items-center justify-center ml-2 ${
-                    currentPage === Math.ceil(filteredArticles.length / articlesPerPage)
-                      ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors'
-                  }`}
-                  aria-label="Próxima página"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-            )}
-            
-            {filteredArticles.length === 0 && (
-              <div className="text-center py-12">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Nenhum artigo encontrado</h3>
-                <p className="text-gray-600 mb-6">Não encontramos artigos que correspondam à sua pesquisa.</p>
-                <button 
-                  onClick={() => setSearchTerm("")}
-                  className="button-secondary"
-                >
-                  Ver todos os artigos
-                </button>
-              </div>
+              </>
             )}
           </div>
         </section>
+        
+        {!selectedArticle && <NewsSection />}
       </main>
       <Footer />
       <FloatingButton />
