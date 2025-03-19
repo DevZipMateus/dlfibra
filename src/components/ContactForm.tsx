@@ -42,10 +42,10 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="section-padding bg-gradient-to-b from-blue-50 to-white" id="contact">
+    <section className="section-padding bg-gradient-to-b from-scarlet-50 to-white" id="contact">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-blue-600 mb-4">
+          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-4">
             Contato
           </span>
           <h2 className="heading-lg mb-6">
@@ -73,7 +73,7 @@ const ContactForm = () => {
                   value={formState.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-colors"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-scarlet-500 focus:ring focus:ring-scarlet-200 focus:ring-opacity-50 transition-colors"
                   placeholder="Seu nome"
                 />
               </div>
@@ -89,7 +89,7 @@ const ContactForm = () => {
                   value={formState.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-colors"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-scarlet-500 focus:ring focus:ring-scarlet-200 focus:ring-opacity-50 transition-colors"
                   placeholder="seu@email.com"
                 />
               </div>
@@ -105,7 +105,7 @@ const ContactForm = () => {
                   value={formState.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-colors"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-scarlet-500 focus:ring focus:ring-scarlet-200 focus:ring-opacity-50 transition-colors"
                   placeholder="Assunto da mensagem"
                 />
               </div>
@@ -121,7 +121,7 @@ const ContactForm = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-scarlet-500 focus:ring focus:ring-scarlet-200 focus:ring-opacity-50 transition-colors resize-none"
                   placeholder="Descreva como podemos ajudar..."
                 />
               </div>
@@ -159,8 +159,8 @@ const ContactForm = () => {
             
             <div className="space-y-8">
               <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                  <Phone className="w-5 h-5 text-blue-600" />
+                <div className="w-12 h-12 rounded-full bg-scarlet-100 flex items-center justify-center mr-4">
+                  <Phone className="w-5 h-5 text-scarlet-600" />
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-1">Telefone</h4>
@@ -170,8 +170,8 @@ const ContactForm = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                  <Mail className="w-5 h-5 text-blue-600" />
+                <div className="w-12 h-12 rounded-full bg-scarlet-100 flex items-center justify-center mr-4">
+                  <Mail className="w-5 h-5 text-scarlet-600" />
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-1">E-mail</h4>
@@ -181,8 +181,8 @@ const ContactForm = () => {
               </div>
               
               <div className="flex items-start">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                  <MapPin className="w-5 h-5 text-blue-600" />
+                <div className="w-12 h-12 rounded-full bg-scarlet-100 flex items-center justify-center mr-4">
+                  <MapPin className="w-5 h-5 text-scarlet-600" />
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 mb-1">Endereço</h4>
@@ -193,7 +193,7 @@ const ContactForm = () => {
               </div>
             </div>
             
-            <div className="mt-10 p-4 bg-blue-50 rounded-lg border border-blue-100">
+            <div className="mt-10 p-4 bg-scarlet-50 rounded-lg border border-scarlet-100">
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Horário de Atendimento</h4>
               <p className="text-gray-600">Segunda a Sexta: 08:00 às 18:00</p>
               <p className="text-gray-600">Sábados: 09:00 às 13:00</p>

@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 pb-12">
           <div>
             <Link to="/" className="text-xl font-display font-bold text-white mb-6 block">
-              Conta<span className="text-blue-400">Connection</span>
+              Conta<span className="text-scarlet-400">Connection</span>
             </Link>
             <p className="text-gray-400 mb-6">
               Soluções contábeis inteligentes para empresas de todos os portes. Oferecemos serviços de contabilidade digital eficiente e moderna.
@@ -103,21 +103,21 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-6">Contato</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <Phone className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" />
+                <Phone className="w-5 h-5 text-scarlet-400 mr-3 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-gray-400">(11) 4002-8922</p>
                   <p className="text-gray-400">(11) 98765-4321</p>
                 </div>
               </li>
               <li className="flex items-start">
-                <Mail className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 text-scarlet-400 mr-3 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-gray-400">contato@contaconnection.com.br</p>
                   <p className="text-gray-400">atendimento@contaconnection.com.br</p>
                 </div>
               </li>
               <li className="flex items-start">
-                <MapPin className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-scarlet-400 mr-3 flex-shrink-0 mt-0.5" />
                 <p className="text-gray-400">
                   Avenida Paulista, 1000<br />
                   Bela Vista, São Paulo - SP<br />
@@ -135,7 +135,7 @@ const Footer = () => {
           <div className="flex items-center space-x-4">
             <button 
               onClick={scrollToTop}
-              className="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors focus:outline-none"
+              className="bg-scarlet-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-scarlet-700 transition-colors focus:outline-none"
               aria-label="Voltar ao topo"
             >
               <ArrowUp className="w-5 h-5" />

@@ -80,7 +80,7 @@ const PlansSection = () => {
     <section className="section-padding bg-gradient-to-b from-gray-50 to-white" id="plans">
       <div className="container mx-auto px-4" ref={sectionRef}>
         <div className="text-center max-w-3xl mx-auto mb-16 opacity-0 animate-fadeIn">
-          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-blue-600 mb-4">
+          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-4">
             Nossos Planos
           </span>
           <h2 className="heading-lg mb-6">
@@ -96,11 +96,11 @@ const PlansSection = () => {
           {plans.map((plan, index) => (
             <div 
               key={index} 
-              className={`card p-8 border-2 ${plan.recommended ? 'border-blue-500' : 'border-gray-100'} relative opacity-0 ${isVisible ? 'animate-slideUp' : ''}`}
+              className={`card p-8 border-2 ${plan.recommended ? 'border-scarlet-500' : 'border-gray-100'} relative opacity-0 ${isVisible ? 'animate-slideUp' : ''}`}
               style={{ animationDelay: `${plan.delay}ms` }}
             >
               {plan.recommended && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white py-1 px-4 rounded-full text-sm font-medium">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-scarlet-500 text-white py-1 px-4 rounded-full text-sm font-medium">
                   Recomendado
                 </div>
               )}
@@ -112,7 +112,7 @@ const PlansSection = () => {
               <ul className="mb-8 space-y-3">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start">
-                    <Check className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                    <Check className="w-5 h-5 text-scarlet-500 mt-0.5 flex-shrink-0" />
                     <span className="ml-3 text-gray-700">{feature}</span>
                   </li>
                 ))}
@@ -121,7 +121,7 @@ const PlansSection = () => {
                 to="/contact" 
                 className={`block text-center py-3 px-6 rounded-lg font-medium transition-all duration-300 w-full ${
                   plan.recommended 
-                    ? 'bg-blue-500 text-white hover:bg-blue-600' 
+                    ? 'bg-scarlet-500 text-white hover:bg-scarlet-600' 
                     : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                 }`}
               >

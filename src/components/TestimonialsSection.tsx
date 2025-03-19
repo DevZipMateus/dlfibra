@@ -64,10 +64,10 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="section-padding bg-gradient-to-b from-white to-blue-50" id="testimonials">
+    <section className="section-padding bg-gradient-to-b from-white to-scarlet-50" id="testimonials">
       <div className="container mx-auto px-4" ref={sectionRef}>
         <div className="text-center max-w-3xl mx-auto mb-16 opacity-0 animate-fadeIn">
-          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-blue-600 mb-4">
+          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-4">
             Depoimentos
           </span>
           <h2 className="heading-lg mb-6">
@@ -104,10 +104,10 @@ const TestimonialsSection = () => {
                   </div>
                 </div>
                 <div className="text-center md:text-left">
-                  <Quote className="text-blue-300 mb-2 w-10 h-10 mx-auto md:mx-0" />
+                  <Quote className="text-scarlet-300 mb-2 w-10 h-10 mx-auto md:mx-0" />
                   <p className="text-lg text-gray-700 italic mb-4">{testimonial.quote}</p>
                   <h4 className="text-xl font-bold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-blue-600">{testimonial.position}</p>
+                  <p className="text-scarlet-600">{testimonial.position}</p>
                 </div>
               </div>
             ))}
@@ -119,7 +119,7 @@ const TestimonialsSection = () => {
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`w-3 h-3 rounded-full mx-1 transition-all duration-300 ${
-                  index === activeIndex ? 'bg-blue-500 w-8' : 'bg-gray-300'
+                  index === activeIndex ? 'bg-scarlet-500 w-8' : 'bg-gray-300'
                 }`}
                 aria-label={`Ver depoimento ${index + 1}`}
               />
