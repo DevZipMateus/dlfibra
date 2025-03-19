@@ -19,7 +19,7 @@ const FloatingButton = () => {
               href="https://wa.me/551199999999?text=Olá,%20gostaria%20de%20mais%20informações" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center text-gray-700 hover:text-blue-600 transition-colors"
+              className="flex items-center text-gray-700 hover:text-scarlet-600 transition-colors"
             >
               <span className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center mr-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
@@ -30,9 +30,9 @@ const FloatingButton = () => {
             </a>
             <Link 
               to="/contact" 
-              className="flex items-center text-gray-700 hover:text-blue-600 transition-colors"
+              className="flex items-center text-gray-700 hover:text-scarlet-600 transition-colors"
             >
-              <span className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center mr-2">
+              <span className="w-8 h-8 rounded-full bg-scarlet-600 flex items-center justify-center mr-2">
                 <MessageCircle className="w-4 h-4 text-white" />
               </span>
               Enviar mensagem
@@ -44,7 +44,7 @@ const FloatingButton = () => {
       <button
         onClick={toggleOpen}
         className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all ${
-          isOpen ? 'bg-gray-700 rotate-45' : 'bg-blue-600 hover:bg-blue-700'
+          isOpen ? 'bg-gray-700 rotate-45' : 'bg-scarlet-700 hover:bg-scarlet-800'
         }`}
       >
         {isOpen ? (

@@ -3,12 +3,12 @@ import { useEffect, useRef } from 'react';
 import { CheckCircle } from 'lucide-react';
 
 const advantages = [
-  "Mais de 15 anos de experiência no mercado",
-  "Equipe de profissionais altamente qualificados",
-  "Atendimento personalizado e humanizado",
-  "Tecnologia de ponta para processos eficientes",
-  "Confidencialidade e segurança garantidas",
-  "Consultoria estratégica para seu negócio"
+  "Mais de 15 anos de experiência",
+  "Equipe altamente qualificada",
+  "Atendimento personalizado",
+  "Tecnologia de ponta",
+  "Segurança garantida",
+  "Consultoria estratégica"
 ];
 
 const AboutSection = () => {
@@ -44,31 +44,26 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section className="section-padding bg-gray-50" id="about">
+    <section className="section-padding bg-white" id="about">
       <div className="container mx-auto px-4" ref={sectionRef}>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
             <div className="opacity-0 animate-element">
-              <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-blue-600 mb-4">
+              <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-700 mb-4">
                 Sobre Nós
               </span>
-              <h2 className="heading-lg mb-6">
-                Dedicação e excelência em serviços contábeis
+              <h2 className="heading-lg mb-4">
+                Serviços contábeis <span className="text-scarlet-700">simplificados</span>
               </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Desde nossa fundação, nos dedicamos ao auxílio administrativo de empresas de diversos portes e segmentos. 
-                Utilizamos técnicas contábeis e administrativas modernas para oferecer um serviço completo e de qualidade.
-              </p>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Nossa equipe técnica está em constante capacitação para oferecer soluções inovadoras na área contábil, 
-                visando sempre atender às necessidades específicas de cada cliente.
+              <p className="text-gray-600 mb-6">
+                Desde nossa fundação, nos dedicamos a oferecer serviços contábeis de qualidade com simplicidade e transparência para empresas de todos os tamanhos.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
               {advantages.map((advantage, index) => (
                 <div key={index} className="flex items-start opacity-0 animate-element">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-scarlet-600 mt-0.5 flex-shrink-0" />
                   <p className="ml-3 text-gray-700">{advantage}</p>
                 </div>
               ))}
@@ -77,9 +72,9 @@ const AboutSection = () => {
           
           <div className="opacity-0 animate-element order-first md:order-last">
             <div className="relative">
-              <div className="absolute -left-4 -top-4 w-24 h-24 bg-blue-200 rounded-lg opacity-50"></div>
-              <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-blue-300 rounded-lg opacity-30"></div>
-              <div className="relative overflow-hidden rounded-xl shadow-xl">
+              <div className="absolute -left-4 -top-4 w-24 h-24 bg-scarlet-200 rounded-lg opacity-50"></div>
+              <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-scarlet-100 rounded-lg opacity-30"></div>
+              <div className="relative overflow-hidden rounded-xl shadow-md">
                 <img 
                   src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80" 
                   alt="Equipe de contabilidade" 
