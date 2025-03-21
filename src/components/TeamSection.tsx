@@ -1,5 +1,4 @@
 
-import { useEffect, useRef } from 'react';
 import { Mail, Linkedin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -39,36 +38,10 @@ const teamMembers = [
 ];
 
 const TeamSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-fadeIn');
-        }
-      },
-      {
-        threshold: 0.1
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <section className="py-16 md:py-24 bg-white" id="team">
-      <div className="container mx-auto px-4" ref={sectionRef}>
-        <div className="text-center max-w-3xl mx-auto mb-12 opacity-0 animate-duration-700">
+    <section className="py-12 md:py-16 bg-white" id="team">
+      <div className="container mx-auto px-4">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <span className="inline-block py-1.5 px-4 rounded-full text-sm font-semibold bg-scarlet-100 text-scarlet-600 mb-4">
             Nossa Equipe
           </span>
@@ -81,12 +54,11 @@ const TeamSection = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {teamMembers.map((member, index) => (
             <Card 
               key={index} 
-              className="opacity-0 animate-duration-700 border-scarlet-50 overflow-hidden group hover:shadow-md transition-all duration-300"
-              style={{ animationDelay: `${member.delay}ms` }}
+              className="border-scarlet-50 overflow-hidden group hover:shadow-md transition-all duration-300"
             >
               <CardContent className="p-0">
                 <div className="relative overflow-hidden w-full aspect-square">
