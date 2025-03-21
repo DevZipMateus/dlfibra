@@ -61,7 +61,7 @@ const TeamSection = () => {
               className="border-scarlet-50 overflow-hidden group hover:shadow-md transition-all duration-300"
             >
               <CardContent className="p-0">
-                <div className="relative overflow-hidden w-full aspect-square">
+                <div className="relative overflow-hidden w-full aspect-[4/3]">
                   <img 
                     src={member.image} 
                     alt={member.name} 
