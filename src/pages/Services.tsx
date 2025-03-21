@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
@@ -221,10 +222,12 @@ const Services = () => {
                 específicas do seu negócio, desde a abertura da empresa até a contabilidade consultiva.
               </p>
               <div className={cn("opacity-0", isVisible && "animate-slideDown delay-400")}>
-                <Button as={Link} to="/contact" variant="default" size="lg" className="rounded-full">
-                  Solicitar orçamento
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
+                <Link to="/contact">
+                  <Button variant="default" size="lg" className="rounded-full">
+                    Solicitar orçamento
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -271,10 +274,12 @@ const Services = () => {
             </div>
             
             <div className="text-center mt-12">
-              <Button as={Link} to="/contact" variant="default" size="lg" className="rounded-full">
-                Solicitar orçamento
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+              <Link to="/contact">
+                <Button variant="default" size="lg" className="rounded-full">
+                  Solicitar orçamento
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
