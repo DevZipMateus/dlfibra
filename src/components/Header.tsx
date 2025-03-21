@@ -7,6 +7,7 @@ import { useMobile } from '@/hooks/use-mobile';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
   const isMobile = useMobile();
   const location = useLocation();
   
@@ -17,7 +18,22 @@ const Header = () => {
       } else {
         setIsScrolled(false);
       }
+      
+      // Check which section is currently visible
+      const sections = ['hero', 'services', 'about', 'team', 'plans', 'testimonials', 'contact'];
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          const isInViewport = rect.top <= 300 && rect.bottom >= 300;
+          if (isInViewport) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -31,6 +47,35 @@ const Header = () => {
   
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+  
+  // Map sections to their corresponding navigation links
+  const sectionToNavMap = {
+    'hero': '/',
+    'services': '/services',
+    'about': '/about',
+    'contact': '/contact'
+  };
+  
+  // Function to determine link color based on active section and current route
+  const getLinkColor = (path) => {
+    // On routes other than homepage, use simple active/inactive colors
+    if (location.pathname !== '/') {
+      return location.pathname === path ? 'text-scarlet-600' : 'text-gray-700 hover:text-scarlet-600';
+    }
+    
+    // On homepage, color based on active section
+    const currentSection = Object.entries(sectionToNavMap).find(([_, navPath]) => navPath === path)?.[0];
+    
+    if (currentSection === activeSection) {
+      // Colors based on section
+      if (activeSection === 'services') return 'text-scarlet-600';
+      if (activeSection === 'about') return 'text-blue-600';
+      if (activeSection === 'contact') return 'text-green-600';
+      return 'text-scarlet-600'; // Default active color
+    }
+    
+    return 'text-gray-700 hover:text-scarlet-600'; // Default inactive color
   };
   
   return (
@@ -78,22 +123,22 @@ const Header = () => {
           <nav className="hidden md:block">
             <ul className="flex space-x-6">
               <li>
-                <Link to="/" className={`text-sm font-medium ${location.pathname === '/' ? 'text-scarlet-600' : 'text-gray-700 hover:text-scarlet-600'} transition-colors`}>
+                <Link to="/" className={`text-sm font-medium ${getLinkColor('/')} transition-colors duration-300`}>
                   Início
                 </Link>
               </li>
               <li>
-                <Link to="/about" className={`text-sm font-medium ${location.pathname === '/about' ? 'text-scarlet-600' : 'text-gray-700 hover:text-scarlet-600'} transition-colors`}>
+                <Link to="/about" className={`text-sm font-medium ${getLinkColor('/about')} transition-colors duration-300`}>
                   Sobre Nós
                 </Link>
               </li>
               <li>
-                <Link to="/services" className={`text-sm font-medium ${location.pathname === '/services' ? 'text-scarlet-600' : 'text-gray-700 hover:text-scarlet-600'} transition-colors`}>
+                <Link to="/services" className={`text-sm font-medium ${getLinkColor('/services')} transition-colors duration-300`}>
                   Serviços
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className={`text-sm font-medium ${location.pathname === '/contact' ? 'text-scarlet-600' : 'text-gray-700 hover:text-scarlet-600'} transition-colors`}>
+                <Link to="/contact" className={`text-sm font-medium ${getLinkColor('/contact')} transition-colors duration-300`}>
                   Contato
                 </Link>
               </li>
@@ -114,22 +159,22 @@ const Header = () => {
             <nav>
               <ul className="flex flex-col space-y-4">
                 <li>
-                  <Link to="/" className={`text-lg font-medium ${location.pathname === '/' ? 'text-scarlet-600' : 'text-gray-700'} block py-2`}>
+                  <Link to="/" className={`text-lg font-medium ${getLinkColor('/')} block py-2`}>
                     Início
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className={`text-lg font-medium ${location.pathname === '/about' ? 'text-scarlet-600' : 'text-gray-700'} block py-2`}>
+                  <Link to="/about" className={`text-lg font-medium ${getLinkColor('/about')} block py-2`}>
                     Sobre Nós
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services" className={`text-lg font-medium ${location.pathname === '/services' ? 'text-scarlet-600' : 'text-gray-700'} block py-2`}>
+                  <Link to="/services" className={`text-lg font-medium ${getLinkColor('/services')} block py-2`}>
                     Serviços
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className={`text-lg font-medium ${location.pathname === '/contact' ? 'text-scarlet-600' : 'text-gray-700'} block py-2`}>
+                  <Link to="/contact" className={`text-lg font-medium ${getLinkColor('/contact')} block py-2`}>
                     Contato
                   </Link>
                 </li>
