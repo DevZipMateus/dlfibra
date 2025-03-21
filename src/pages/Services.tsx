@@ -1,12 +1,23 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingButton from "@/components/FloatingButton";
 import ServicesSection from "@/components/ServicesSection";
 import PlansSection from "@/components/PlansSection";
-import { CheckCircle, ArrowRight, FileText, Calculator, Briefcase, Building2, ScaleIcon, FileCheck, Coins, LineChart } from "lucide-react";
+import { 
+  CheckCircle, 
+  ArrowRight, 
+  FileText, 
+  Calculator, 
+  Briefcase, 
+  Building2, 
+  FileCheck, 
+  Coins, 
+  LineChart 
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 // Workaround for missing ScaleIcon
 const Scale = (props: any) => (
@@ -160,44 +171,83 @@ const serviceDetails = [
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [visibleCards, setVisibleCards] = useState<number[]>([]);
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Animate service cards sequentially
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        setVisibleCards(prev => {
+          if (prev.length >= serviceDetails.length) {
+            clearInterval(interval);
+            return prev;
+          }
+          return [...prev, prev.length];
+        });
+      }, 150);
+      
+      return () => clearInterval(interval);
+    }, 800);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-blue-50 to-white">
+        <section className="pt-28 pb-16 md:pt-32 md:pb-16 bg-gradient-to-b from-scarlet-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <span className={`inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-blue-600 mb-6 opacity-0 ${isVisible ? 'animate-fadeIn' : ''}`}>
+              <span className={cn(
+                "inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-700 mb-6 opacity-0",
+                isVisible && "animate-fadeIn"
+              )}>
                 Nossos Serviços
               </span>
-              <h1 className={`heading-xl mb-6 opacity-0 ${isVisible ? 'animate-slideDown' : ''}`}>
+              <h1 className={cn(
+                "heading-xl mb-6 opacity-0",
+                isVisible && "animate-slideDown"
+              )}>
                 Soluções contábeis <span className="text-gradient">inteligentes</span> para cada necessidade
               </h1>
-              <p className={`subtitle mx-auto mb-10 opacity-0 ${isVisible ? 'animate-slideDown delay-200' : ''}`}>
+              <p className={cn(
+                "subtitle mx-auto mb-8 opacity-0",
+                isVisible && "animate-slideDown delay-200"
+              )}>
                 Oferecemos serviços contábeis completos, personalizados para atender às necessidades 
                 específicas do seu negócio, desde a abertura da empresa até a contabilidade consultiva.
               </p>
+              <div className={cn("opacity-0", isVisible && "animate-slideDown delay-400")}>
+                <Button as={Link} to="/contact" variant="default" size="lg" className="rounded-full">
+                  Solicitar orçamento
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
             </div>
           </div>
         </section>
         
-        <ServicesSection />
-        
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="heading-lg text-center mb-16">Conheça nossos serviços em detalhes</h2>
+            <h2 className="heading-lg text-center mb-10">Conheça nossos serviços em detalhes</h2>
             
             <div className="grid lg:grid-cols-2 gap-8 mb-12">
               {serviceDetails.map((service, index) => (
-                <div key={service.id} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div 
+                  key={service.id} 
+                  className={cn(
+                    "bg-gradient-to-br from-white to-scarlet-50 rounded-xl p-8 shadow-sm border border-scarlet-100",
+                    "hover:shadow-md transition-all duration-300 hover:-translate-y-1",
+                    "opacity-0 transform translate-y-4",
+                    visibleCards.includes(index) && "opacity-100 translate-y-0 transition-all duration-500"
+                  )}
+                >
                   <div className="flex items-start mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mr-4">
-                      <service.icon className="w-6 h-6 text-blue-600" />
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-scarlet-100 to-scarlet-200 flex items-center justify-center mr-4">
+                      <service.icon className="w-6 h-6 text-scarlet-700" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
@@ -205,12 +255,12 @@ const Services = () => {
                     </div>
                   </div>
                   
-                  <div className="ml-18">
+                  <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-4 pl-14">O que incluímos:</h4>
                     <div className="grid sm:grid-cols-2 gap-3 pl-14">
                       {service.features.map((feature, i) => (
                         <div key={i} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+                          <CheckCircle className="w-5 h-5 text-scarlet-600 mt-0.5 flex-shrink-0" />
                           <span className="ml-2 text-gray-700">{feature}</span>
                         </div>
                       ))}
@@ -221,10 +271,10 @@ const Services = () => {
             </div>
             
             <div className="text-center mt-12">
-              <Link to="/contact" className="button-primary">
+              <Button as={Link} to="/contact" variant="default" size="lg" className="rounded-full">
                 Solicitar orçamento
-                <ArrowRight className="inline-block ml-2 w-4 h-4" />
-              </Link>
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
             </div>
           </div>
         </section>
