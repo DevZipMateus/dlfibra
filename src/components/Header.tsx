@@ -167,6 +167,15 @@ const Header = () => {
                 </a>
               </div>
             </div>
+            
+            {/* Close button for mobile menu */}
+            <button 
+              onClick={toggleMenu} 
+              className="absolute top-4 right-4 p-2 rounded-full bg-scarlet-100 text-scarlet-600 hover:bg-scarlet-200 transition-colors"
+              aria-label="Fechar menu"
+            >
+              <X className="w-6 h-6" />
+            </button>
           </div>
         </div>
       )}

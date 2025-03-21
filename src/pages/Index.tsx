@@ -16,22 +16,22 @@ const Index = () => {
       <Header />
       <main className="w-full">
         <HeroSection />
-        <div className="py-2">
+        <div className="bg-white">
           <ServicesSection />
         </div>
-        <div className="py-2">
+        <div className="bg-scarlet-50">
           <AboutSection />
         </div>
-        <div className="py-2">
+        <div className="bg-white">
           <TeamSection />
         </div>
-        <div className="py-2">
+        <div className="bg-scarlet-50">
           <PlansSection />
         </div>
-        <div className="py-2">
+        <div className="bg-white">
           <TestimonialsSection />
         </div>
-        <div className="py-2">
+        <div className="bg-scarlet-50">
           <ContactForm />
         </div>
       </main>

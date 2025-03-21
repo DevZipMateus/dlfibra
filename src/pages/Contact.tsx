@@ -17,7 +17,7 @@ const Contact = () => {
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <section className="pt-20 pb-6 md:pt-28 md:pb-10 bg-gradient-to-b from-scarlet-50 to-white">
+        <section className="pt-20 pb-6 md:pt-28 md:pb-8 bg-gradient-to-b from-scarlet-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <span className={`inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-3 opacity-0 ${isVisible ? 'animate-fadeIn' : ''}`}>
@@ -26,7 +26,7 @@ const Contact = () => {
               <h1 className={`heading-xl mb-3 opacity-0 ${isVisible ? 'animate-slideDown' : ''}`}>
                 Entre em <span className="text-gradient">contato</span> conosco
               </h1>
-              <p className={`subtitle mx-auto mb-4 opacity-0 ${isVisible ? 'animate-slideDown delay-200' : ''}`}>
+              <p className={`subtitle mx-auto mb-3 opacity-0 ${isVisible ? 'animate-slideDown delay-200' : ''}`}>
                 Estamos prontos para atender suas necessidades contábeis. Entre em contato por telefone, 
                 e-mail ou WhatsApp para uma consultoria personalizada.
               </p>
@@ -34,9 +34,11 @@ const Contact = () => {
           </div>
         </section>
         
-        <ContactForm />
+        <div className="bg-white">
+          <ContactForm />
+        </div>
         
-        <section className="py-8 bg-white">
+        <section className="py-8 bg-scarlet-50">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <h2 className="heading-lg text-center mb-6">Como chegar</h2>
