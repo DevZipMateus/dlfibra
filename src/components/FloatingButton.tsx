@@ -48,7 +48,11 @@ const FloatingButton = () => {
         {isOpen ? (
           <X className="w-6 h-6" />
         ) : (
-          <MessageCircle className="w-6 h-6" />
+          <img 
+            src="/lovable-uploads/db774a34-6e4e-4b59-8c0f-b48860054798.png" 
+            alt="Contact" 
+            className="w-6 h-6"
+          />
         )}
       </button>
     </div>
