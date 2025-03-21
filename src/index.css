@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -65,19 +66,19 @@
 
 @layer components {
   .heading-xl {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight;
+    @apply text-2xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight;
   }
   
   .heading-lg {
-    @apply text-2xl md:text-3xl font-bold text-gray-900 tracking-tight;
+    @apply text-xl md:text-3xl font-bold text-gray-900 tracking-tight;
   }
   
   .heading-md {
-    @apply text-xl md:text-2xl font-bold text-gray-900;
+    @apply text-lg md:text-2xl font-bold text-gray-900;
   }
   
   .subtitle {
-    @apply text-base md:text-lg text-gray-600 max-w-3xl;
+    @apply text-sm md:text-lg text-gray-600 max-w-3xl;
   }
   
   .text-gradient {
@@ -85,11 +86,11 @@
   }
   
   .button-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-scarlet-700 text-white font-medium hover:bg-scarlet-800 transition-colors;
+    @apply inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 rounded-lg bg-scarlet-700 text-white font-medium hover:bg-scarlet-800 transition-colors;
   }
   
   .button-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-scarlet-700 font-medium border border-scarlet-200 hover:bg-scarlet-50 transition-colors;
+    @apply inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 rounded-lg bg-white text-scarlet-700 font-medium border border-scarlet-200 hover:bg-scarlet-50 transition-colors;
   }
 
   .glass-card {
@@ -105,7 +106,7 @@
   }
 
   .section-padding {
-    @apply py-8 md:py-12;
+    @apply py-6 md:py-10;
   }
 }
 
@@ -185,4 +186,61 @@
   .delay-600 {
     animation-delay: 0.6s;
   }
+  
+  /* Mobile optimization utilities */
+  .mobile-container {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+  
+  .mobile-py {
+    @apply py-4 md:py-6 lg:py-8;
+  }
+  
+  .mobile-my {
+    @apply my-4 md:my-6 lg:my-8;
+  }
+}
+
+/* Modify app CSS to remove some default padding */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 1em;
+}
+
+.read-the-docs {
+  color: #888;
 }

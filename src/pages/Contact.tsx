@@ -17,16 +17,16 @@ const Contact = () => {
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <section className="pt-24 pb-10 md:pt-28 md:pb-12 bg-gradient-to-b from-scarlet-50 to-white">
+        <section className="pt-20 pb-6 md:pt-28 md:pb-10 bg-gradient-to-b from-scarlet-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <span className={`inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-4 opacity-0 ${isVisible ? 'animate-fadeIn' : ''}`}>
+              <span className={`inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-3 opacity-0 ${isVisible ? 'animate-fadeIn' : ''}`}>
                 Contato
               </span>
-              <h1 className={`heading-xl mb-4 opacity-0 ${isVisible ? 'animate-slideDown' : ''}`}>
+              <h1 className={`heading-xl mb-3 opacity-0 ${isVisible ? 'animate-slideDown' : ''}`}>
                 Entre em <span className="text-gradient">contato</span> conosco
               </h1>
-              <p className={`subtitle mx-auto mb-6 opacity-0 ${isVisible ? 'animate-slideDown delay-200' : ''}`}>
+              <p className={`subtitle mx-auto mb-4 opacity-0 ${isVisible ? 'animate-slideDown delay-200' : ''}`}>
                 Estamos prontos para atender suas necessidades contábeis. Entre em contato por telefone, 
                 e-mail ou WhatsApp para uma consultoria personalizada.
               </p>
@@ -36,13 +36,13 @@ const Contact = () => {
         
         <ContactForm />
         
-        <section className="py-10 bg-white">
+        <section className="py-8 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
-              <h2 className="heading-lg text-center mb-8">Como chegar</h2>
+              <h2 className="heading-lg text-center mb-6">Como chegar</h2>
               
               <div className="bg-white rounded-xl overflow-hidden shadow-sm">
-                <div className="aspect-w-16 aspect-h-9 w-full h-72">
+                <div className="aspect-w-16 aspect-h-9 w-full h-48 md:h-72">
                   <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0976469797324!2d-46.65420468502106!3d-23.564611184683764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1620305114974!5m2!1spt-BR!2sbr" 
                     width="100%" 
@@ -53,8 +53,8 @@ const Contact = () => {
                     title="Mapa do escritório"
                   ></iframe>
                 </div>
-                <div className="p-5 flex items-start">
-                  <div className="w-12 h-12 rounded-xl bg-scarlet-100 flex items-center justify-center mr-4">
+                <div className="p-4 md:p-5 flex flex-col md:flex-row md:items-start">
+                  <div className="w-12 h-12 rounded-xl bg-scarlet-100 flex items-center justify-center mb-3 md:mb-0 md:mr-4">
                     <MapPin className="w-6 h-6 text-scarlet-600" />
                   </div>
                   <div>

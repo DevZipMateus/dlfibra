@@ -34,7 +34,7 @@ const Header = () => {
   };
   
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-sm py-2' : 'bg-transparent py-4'}`}>
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-sm py-2' : 'bg-transparent py-3'}`}>
       {/* Top bar with contact info and social media links */}
       <div className="text-white py-2 hidden md:block bg-scarlet-600">
         <div className="container mx-auto px-4 flex justify-between items-center">
@@ -109,49 +109,49 @@ const Header = () => {
       
       {/* Mobile Menu */}
       {isMenuOpen && isMobile && (
-        <div className="fixed inset-0 bg-white z-50 pt-20">
+        <div className="fixed inset-0 bg-white z-50 pt-16">
           <div className="container mx-auto px-4">
             <nav>
               <ul className="flex flex-col space-y-4">
                 <li>
-                  <Link to="/" className={`text-lg font-medium ${location.pathname === '/' ? 'text-scarlet-600' : 'text-gray-700'}`}>
+                  <Link to="/" className={`text-lg font-medium ${location.pathname === '/' ? 'text-scarlet-600' : 'text-gray-700'} block py-2`}>
                     Início
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className={`text-lg font-medium ${location.pathname === '/about' ? 'text-scarlet-600' : 'text-gray-700'}`}>
+                  <Link to="/about" className={`text-lg font-medium ${location.pathname === '/about' ? 'text-scarlet-600' : 'text-gray-700'} block py-2`}>
                     Sobre Nós
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services" className={`text-lg font-medium ${location.pathname === '/services' ? 'text-scarlet-600' : 'text-gray-700'}`}>
+                  <Link to="/services" className={`text-lg font-medium ${location.pathname === '/services' ? 'text-scarlet-600' : 'text-gray-700'} block py-2`}>
                     Serviços
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className={`text-lg font-medium ${location.pathname === '/contact' ? 'text-scarlet-600' : 'text-gray-700'}`}>
+                  <Link to="/contact" className={`text-lg font-medium ${location.pathname === '/contact' ? 'text-scarlet-600' : 'text-gray-700'} block py-2`}>
                     Contato
                   </Link>
                 </li>
               </ul>
             </nav>
             
-            <div className="mt-8">
-              <h3 className="text-sm text-gray-500 mb-3">Contato</h3>
+            <div className="mt-6 border-t border-gray-100 pt-6">
+              <h3 className="text-sm font-semibold text-gray-500 mb-3">Contato</h3>
               <div className="flex flex-col space-y-3">
                 <a href="mailto:contato@contaconnection.com.br" className="flex items-center text-gray-700">
-                  <Mail className="w-4 h-4 mr-2" />
+                  <Mail className="w-4 h-4 mr-2 text-scarlet-600" />
                   contato@contaconnection.com.br
                 </a>
                 <a href="tel:+551199999999" className="flex items-center text-gray-700">
-                  <Phone className="w-4 h-4 mr-2" />
+                  <Phone className="w-4 h-4 mr-2 text-scarlet-600" />
                   (11) 9999-9999
                 </a>
               </div>
             </div>
             
             <div className="mt-6">
-              <h3 className="text-sm text-gray-500 mb-3">Siga-nos</h3>
+              <h3 className="text-sm font-semibold text-gray-500 mb-3">Siga-nos</h3>
               <div className="flex space-x-3">
                 <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-scarlet-100 text-scarlet-600">
                   <Facebook className="w-5 h-5" />

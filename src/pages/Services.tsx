@@ -199,23 +199,23 @@ const Services = () => {
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <section className="pt-28 pb-16 md:pt-32 md:pb-16 bg-gradient-to-b from-scarlet-50 to-white">
+        <section className="pt-20 pb-8 md:pt-28 md:pb-12 bg-gradient-to-b from-scarlet-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <span className={cn(
-                "inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-700 mb-6 opacity-0",
+                "inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-700 mb-4 opacity-0",
                 isVisible && "animate-fadeIn"
               )}>
                 Nossos Serviços
               </span>
               <h1 className={cn(
-                "heading-xl mb-6 opacity-0",
+                "heading-xl mb-4 opacity-0",
                 isVisible && "animate-slideDown"
               )}>
                 Soluções contábeis <span className="text-gradient">inteligentes</span> para cada necessidade
               </h1>
               <p className={cn(
-                "subtitle mx-auto mb-8 opacity-0",
+                "subtitle mx-auto mb-6 opacity-0",
                 isVisible && "animate-slideDown delay-200"
               )}>
                 Oferecemos serviços contábeis completos, personalizados para atender às necessidades 
@@ -233,38 +233,38 @@ const Services = () => {
           </div>
         </section>
         
-        <section className="py-16 bg-white">
+        <section className="py-8 md:py-12 bg-white">
           <div className="container mx-auto px-4">
-            <h2 className="heading-lg text-center mb-10">Conheça nossos serviços em detalhes</h2>
+            <h2 className="heading-lg text-center mb-8">Conheça nossos serviços em detalhes</h2>
             
-            <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <div className="grid lg:grid-cols-2 gap-6 mb-10">
               {serviceDetails.map((service, index) => (
                 <div 
                   key={service.id} 
                   className={cn(
-                    "bg-gradient-to-br from-white to-scarlet-50 rounded-xl p-8 shadow-sm border border-scarlet-100",
+                    "bg-gradient-to-br from-white to-scarlet-50 rounded-xl p-4 md:p-6 shadow-sm border border-scarlet-100",
                     "hover:shadow-md transition-all duration-300 hover:-translate-y-1",
                     "opacity-0 transform translate-y-4",
                     visibleCards.includes(index) && "opacity-100 translate-y-0 transition-all duration-500"
                   )}
                 >
-                  <div className="flex items-start mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-scarlet-100 to-scarlet-200 flex items-center justify-center mr-4">
+                  <div className="flex flex-col md:flex-row md:items-start mb-4 md:mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-scarlet-100 to-scarlet-200 flex items-center justify-center mb-3 md:mb-0 md:mr-4">
                       <service.icon className="w-6 h-6 text-scarlet-700" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
-                      <p className="text-gray-600">{service.description}</p>
+                      <p className="text-gray-600 text-sm md:text-base">{service.description}</p>
                     </div>
                   </div>
                   
                   <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-4 pl-14">O que incluímos:</h4>
-                    <div className="grid sm:grid-cols-2 gap-3 pl-14">
+                    <h4 className="text-lg font-semibold text-gray-900 mb-3 md:pl-14">O que incluímos:</h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:pl-14">
                       {service.features.map((feature, i) => (
                         <div key={i} className="flex items-start">
-                          <CheckCircle className="w-5 h-5 text-scarlet-600 mt-0.5 flex-shrink-0" />
-                          <span className="ml-2 text-gray-700">{feature}</span>
+                          <CheckCircle className="w-4 h-4 text-scarlet-600 mt-0.5 flex-shrink-0" />
+                          <span className="ml-2 text-gray-700 text-sm md:text-base">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -273,7 +273,7 @@ const Services = () => {
               ))}
             </div>
             
-            <div className="text-center mt-12">
+            <div className="text-center mt-8">
               <Link to="/contact">
                 <Button variant="default" size="lg" className="rounded-full">
                   Solicitar orçamento
@@ -284,7 +284,9 @@ const Services = () => {
           </div>
         </section>
         
-        <PlansSection />
+        <div className="py-2">
+          <PlansSection />
+        </div>
       </main>
       <Footer />
       <FloatingButton />
