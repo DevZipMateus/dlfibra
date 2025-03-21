@@ -225,7 +225,7 @@ const UsefulLinks = () => {
         <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-blue-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <span className={`inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-blue-600 mb-6 opacity-0 ${isVisible ? 'animate-fadeIn' : ''}`}>
+              <span className={`inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-6 opacity-0 ${isVisible ? 'animate-fadeIn' : ''}`}>
                 Links Úteis
               </span>
               <h1 className={`heading-xl mb-6 opacity-0 ${isVisible ? 'animate-slideDown' : ''}`}>
@@ -246,7 +246,7 @@ const UsefulLinks = () => {
                 onClick={() => setActiveTab("agenda")}
                 className={`flex items-center px-5 py-3 rounded-full text-sm font-medium transition-colors ${
                   activeTab === "agenda" 
-                    ? 'bg-blue-500 text-white' 
+                    ? 'bg-scarlet-600 text-white' 
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -258,7 +258,7 @@ const UsefulLinks = () => {
                 onClick={() => setActiveTab("tabelas")}
                 className={`flex items-center px-5 py-3 rounded-full text-sm font-medium transition-colors ${
                   activeTab === "tabelas" 
-                    ? 'bg-blue-500 text-white' 
+                    ? 'bg-scarlet-600 text-white' 
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -270,7 +270,7 @@ const UsefulLinks = () => {
                 onClick={() => setActiveTab("formularios")}
                 className={`flex items-center px-5 py-3 rounded-full text-sm font-medium transition-colors ${
                   activeTab === "formularios" 
-                    ? 'bg-blue-500 text-white' 
+                    ? 'bg-scarlet-600 text-white' 
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -282,7 +282,7 @@ const UsefulLinks = () => {
                 onClick={() => setActiveTab("calculadoras")}
                 className={`flex items-center px-5 py-3 rounded-full text-sm font-medium transition-colors ${
                   activeTab === "calculadoras" 
-                    ? 'bg-blue-500 text-white' 
+                    ? 'bg-scarlet-600 text-white' 
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -294,7 +294,7 @@ const UsefulLinks = () => {
                 onClick={() => setActiveTab("sites")}
                 className={`flex items-center px-5 py-3 rounded-full text-sm font-medium transition-colors ${
                   activeTab === "sites" 
-                    ? 'bg-blue-500 text-white' 
+                    ? 'bg-scarlet-600 text-white' 
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -310,14 +310,14 @@ const UsefulLinks = () => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col"
+                  className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col hover:border-scarlet-200"
                 >
                   <div className="flex items-start">
-                    <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-scarlet-100 flex items-center justify-center mr-4 flex-shrink-0 text-scarlet-600">
                       {getIcon(activeTab)}
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-scarlet-600 transition-colors">
                         {link.title}
                       </h3>
                       <p className="text-gray-600 text-sm mb-4">
@@ -325,7 +325,7 @@ const UsefulLinks = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="mt-auto flex items-center text-blue-500 text-sm font-medium">
+                  <div className="mt-auto flex items-center text-scarlet-600 text-sm font-medium">
                     {activeTab === "sites" ? (
                       <>
                         <ExternalLink className="w-4 h-4 mr-1" />
