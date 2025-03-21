@@ -18,7 +18,7 @@ const Footer = () => {
             <Link to="/" className="text-xl md:text-2xl font-display font-bold text-white mb-4 block hover:text-scarlet-300 transition-colors">
               Conta<span className="text-scarlet-400">Connection</span>
             </Link>
-            <p className="text-gray-200 mb-5 leading-relaxed text-sm md:text-base">
+            <p className="text-white mb-5 leading-relaxed text-sm md:text-base">
               Soluções contábeis inteligentes para empresas de todos os portes. Oferecemos serviços de contabilidade digital eficiente e moderna.
             </p>
             <div className="flex space-x-4">
@@ -31,7 +31,7 @@ const Footer = () => {
                 <a 
                   key={label} 
                   href={link} 
-                  className="text-gray-200 hover:text-scarlet-300 transition-colors" 
+                  className="text-white hover:text-scarlet-300 transition-colors" 
                   aria-label={label}
                 >
                   <Icon className="w-6 h-6" />
@@ -52,7 +52,7 @@ const Footer = () => {
                 <li key={label}>
                   <Link 
                     to={to} 
-                    className="text-gray-200 hover:text-scarlet-300 transition-colors flex items-center text-sm md:text-base"
+                    className="text-white hover:text-scarlet-300 transition-colors flex items-center text-sm md:text-base"
                   >
                     <span className="w-1.5 h-1.5 bg-scarlet-400 rounded-full mr-2 inline-block"></span>
                     {label}
@@ -89,7 +89,7 @@ const Footer = () => {
                   <Icon className={`w-5 h-5 ${className} mr-3 flex-shrink-0 mt-0.5`} />
                   <div>
                     {items.map((item, i) => (
-                      <p key={i} className="text-gray-200 text-sm md:text-base">{item}</p>
+                      <p key={i} className="text-white text-sm md:text-base">{item}</p>
                     ))}
                   </div>
                 </li>
@@ -99,7 +99,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-scarlet-800 py-4 md:py-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-300 text-xs md:text-sm mb-4 md:mb-0">
+          <p className="text-white text-xs md:text-sm mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} ContaConnection. Todos os direitos reservados.
           </p>
           <div className="flex items-center">
