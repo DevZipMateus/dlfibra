@@ -10,17 +10,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-scarlet-700 text-white hover:bg-scarlet-800", // Primary color (60%)
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-scarlet-300 bg-background hover:bg-scarlet-50 hover:text-scarlet-700", // Secondary color (30%)
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        scarlet: "bg-scarlet-600 text-white hover:bg-scarlet-700",
-        outlineScarlet: "border border-scarlet-600 text-scarlet-600 hover:bg-scarlet-50",
+          "bg-scarlet-100 text-scarlet-700 hover:bg-scarlet-200", // Secondary color (30%)
+        ghost: "hover:bg-scarlet-50 hover:text-scarlet-700", // Secondary interaction
+        link: "text-scarlet-700 underline-offset-4 hover:underline", // Accent color (10%)
+        scarlet: "bg-scarlet-600 text-white hover:bg-scarlet-700", // Primary variant
+        outlineScarlet: "border border-scarlet-600 text-scarlet-600 hover:bg-scarlet-50", // Secondary variant
+        contrast: "bg-yellow-600 text-white hover:bg-yellow-700", // Contrast color (10%)
       },
       size: {
         default: "h-10 px-4 py-2",

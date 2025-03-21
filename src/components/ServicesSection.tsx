@@ -76,7 +76,7 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className={`card p-6 flex flex-col items-start opacity-0`}
+              className={`card p-6 flex flex-col items-start opacity-0 border border-scarlet-100 hover:border-scarlet-200 rounded-lg transition-all`}
               style={{ animationDelay: `${service.delay}ms` }}
             >
               <div className="w-14 h-14 rounded-xl bg-scarlet-100 flex items-center justify-center mb-6">

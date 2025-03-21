@@ -17,18 +17,18 @@ const Contact = () => {
     <div className="min-h-screen bg-white">
       <Header />
       <main>
-        <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-blue-50 to-white">
+        <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-scarlet-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <span className={`inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-blue-600 mb-6 opacity-0 ${isVisible ? 'animate-fadeIn' : ''}`}>
+              <span className={`inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-6 opacity-0 ${isVisible ? 'animate-fadeIn' : ''}`}>
                 Contato
               </span>
               <h1 className={`heading-xl mb-6 opacity-0 ${isVisible ? 'animate-slideDown' : ''}`}>
                 Entre em <span className="text-gradient">contato</span> conosco
               </h1>
               <p className={`subtitle mx-auto mb-10 opacity-0 ${isVisible ? 'animate-slideDown delay-200' : ''}`}>
-                Estamos prontos para atender suas necessidades contábeis. Envie-nos uma mensagem
-                ou visite nosso escritório para uma consultoria personalizada.
+                Estamos prontos para atender suas necessidades contábeis. Entre em contato por telefone, 
+                e-mail ou WhatsApp para uma consultoria personalizada.
               </p>
             </div>
           </div>
@@ -54,8 +54,8 @@ const Contact = () => {
                   ></iframe>
                 </div>
                 <div className="p-6 flex items-start">
-                  <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mr-4">
-                    <MapPin className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 rounded-xl bg-scarlet-100 flex items-center justify-center mr-4">
+                    <MapPin className="w-6 h-6 text-scarlet-600" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Nosso Escritório</h3>

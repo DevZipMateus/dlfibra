@@ -93,16 +93,6 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/news" className={`text-sm font-medium ${location.pathname === '/news' ? 'text-scarlet-600' : 'text-gray-700 hover:text-scarlet-600'} transition-colors`}>
-                  Notícias
-                </Link>
-              </li>
-              <li>
-                <Link to="/useful-links" className={`text-sm font-medium ${location.pathname === '/useful-links' ? 'text-scarlet-600' : 'text-gray-700 hover:text-scarlet-600'} transition-colors`}>
-                  Links Úteis
-                </Link>
-              </li>
-              <li>
                 <Link to="/contact" className={`text-sm font-medium ${location.pathname === '/contact' ? 'text-scarlet-600' : 'text-gray-700 hover:text-scarlet-600'} transition-colors`}>
                   Contato
                 </Link>
@@ -136,16 +126,6 @@ const Header = () => {
                 <li>
                   <Link to="/services" className={`text-lg font-medium ${location.pathname === '/services' ? 'text-scarlet-600' : 'text-gray-700'}`}>
                     Serviços
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/news" className={`text-lg font-medium ${location.pathname === '/news' ? 'text-scarlet-600' : 'text-gray-700'}`}>
-                    Notícias
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/useful-links" className={`text-lg font-medium ${location.pathname === '/useful-links' ? 'text-scarlet-600' : 'text-gray-700'}`}>
-                    Links Úteis
                   </Link>
                 </li>
                 <li>
