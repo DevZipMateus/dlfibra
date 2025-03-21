@@ -42,10 +42,10 @@ const FloatingButton = () => {
       <button
         onClick={toggleOpen}
         className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-all animate-pulse hover:animate-none ${
-          isOpen ? 'bg-gray-700 rotate-45' : 'bg-scarlet-700 hover:bg-scarlet-800'
+          isOpen ? 'bg-gray-700 rotate-45' : 'bg-green-500 hover:bg-green-600'
         }`}
         style={{
-          boxShadow: isOpen ? 'none' : '0 0 0 rgba(185, 28, 28, 0.4)',
+          boxShadow: isOpen ? 'none' : '0 0 0 rgba(34, 197, 94, 0.4)',
           animation: isOpen ? 'none' : 'pulse 2s infinite'
         }}
       >
