@@ -79,11 +79,11 @@ const PlansSection = () => {
   return (
     <section className="section-padding bg-gradient-to-b from-gray-50 to-white" id="plans">
       <div className="container mx-auto px-4" ref={sectionRef}>
-        <div className="text-center max-w-3xl mx-auto mb-16 opacity-0 animate-fadeIn">
-          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 opacity-0 animate-fadeIn">
+          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-3">
             Nossos Planos
           </span>
-          <h2 className="heading-lg mb-6">
+          <h2 className="heading-lg mb-4">
             Escolha o plano ideal para seu negócio
           </h2>
           <p className="subtitle">
@@ -92,11 +92,11 @@ const PlansSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {plans.map((plan, index) => (
             <div 
               key={index} 
-              className={`card p-8 border-2 ${plan.recommended ? 'border-scarlet-500' : 'border-gray-100'} relative opacity-0 ${isVisible ? 'animate-slideUp' : ''}`}
+              className={`card p-6 border-2 ${plan.recommended ? 'border-scarlet-500' : 'border-gray-100'} relative opacity-0 ${isVisible ? 'animate-slideUp' : ''}`}
               style={{ animationDelay: `${plan.delay}ms` }}
             >
               {plan.recommended && (
@@ -104,16 +104,16 @@ const PlansSection = () => {
                   Recomendado
                 </div>
               )}
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{plan.title}</h3>
-              <div className="flex items-baseline mb-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.title}</h3>
+              <div className="flex items-baseline mb-4">
                 <span className="text-3xl font-bold">R${plan.price}</span>
                 <span className="text-gray-600 ml-1">/mês</span>
               </div>
-              <ul className="mb-8 space-y-3">
+              <ul className="mb-6 space-y-2">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start">
                     <Check className="w-5 h-5 text-scarlet-500 mt-0.5 flex-shrink-0" />
-                    <span className="ml-3 text-gray-700">{feature}</span>
+                    <span className="ml-2 text-gray-700 text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>

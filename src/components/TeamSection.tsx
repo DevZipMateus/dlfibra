@@ -58,11 +58,11 @@ const TeamSection = () => {
   return (
     <section className="section-padding bg-white" id="team">
       <div className="container mx-auto px-4" ref={sectionRef}>
-        <div className="text-center max-w-3xl mx-auto mb-16 opacity-0 animate-duration-700">
-          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-blue-600 mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 opacity-0 animate-duration-700">
+          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-3">
             Nossa Equipe
           </span>
-          <h2 className="heading-lg mb-6">
+          <h2 className="heading-lg mb-4">
             Profissionais dedicados ao seu sucesso
           </h2>
           <p className="subtitle">
@@ -71,14 +71,14 @@ const TeamSection = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {teamMembers.map((member, index) => (
             <div 
               key={index} 
               className="flex flex-col items-center opacity-0 animate-duration-700"
               style={{ animationDelay: `${member.delay}ms` }}
             >
-              <div className="relative overflow-hidden rounded-xl mb-5 w-full aspect-square shadow-md">
+              <div className="relative overflow-hidden rounded-xl mb-3 w-full aspect-square shadow-md">
                 <img 
                   src={member.image} 
                   alt={member.name} 
@@ -87,7 +87,7 @@ const TeamSection = () => {
                 />
               </div>
               <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>
-              <p className="text-blue-600 font-medium">{member.position}</p>
+              <p className="text-scarlet-600 font-medium">{member.position}</p>
             </div>
           ))}
         </div>

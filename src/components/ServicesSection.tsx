@@ -59,11 +59,11 @@ const ServicesSection = () => {
   return (
     <section className="section-padding bg-white" id="services">
       <div className="container mx-auto px-4" ref={sectionRef}>
-        <div className="text-center max-w-3xl mx-auto mb-16 opacity-0 animate-duration-700">
-          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-10 opacity-0 animate-duration-700">
+          <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-600 mb-3">
             Nossos Serviços
           </span>
-          <h2 className="heading-lg mb-6">
+          <h2 className="heading-lg mb-4">
             Serviços contábeis completos para o seu negócio
           </h2>
           <p className="subtitle">
@@ -72,18 +72,18 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className={`card p-6 flex flex-col items-start opacity-0 border border-scarlet-100 hover:border-scarlet-200 rounded-lg transition-all`}
+              className={`card p-5 flex flex-col items-start opacity-0 border border-scarlet-100 hover:border-scarlet-200 rounded-lg transition-all`}
               style={{ animationDelay: `${service.delay}ms` }}
             >
-              <div className="w-14 h-14 rounded-xl bg-scarlet-100 flex items-center justify-center mb-6">
-                <service.icon className="w-6 h-6 text-scarlet-600" />
+              <div className="w-12 h-12 rounded-xl bg-scarlet-100 flex items-center justify-center mb-4">
+                <service.icon className="w-5 h-5 text-scarlet-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+              <p className="text-gray-600 text-sm">{service.description}</p>
             </div>
           ))}
         </div>
