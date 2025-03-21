@@ -71,7 +71,7 @@ const ServicesSection = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-white to-scarlet-50" id="services">
       <div className="container mx-auto px-4" ref={sectionRef}>
-        <div className="text-center max-w-3xl mx-auto mb-12 opacity-0 animate-duration-700">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-scarlet-100 text-scarlet-700 mb-3">
             Nossos Serviços
           </span>
@@ -89,7 +89,7 @@ const ServicesSection = () => {
             <div 
               key={index} 
               className={cn(
-                "service-card opacity-0 p-6 rounded-xl transition-all duration-300",
+                "service-card p-6 rounded-xl transition-all duration-300",
                 "bg-white border border-scarlet-100 hover:border-scarlet-300",
                 "hover:shadow-md hover:-translate-y-1 flex flex-col items-start"
               )}
