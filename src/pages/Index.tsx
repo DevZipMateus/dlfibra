@@ -18,22 +18,22 @@ const Index = () => {
         <div id="hero">
           <HeroSection />
         </div>
-        <div className="bg-white" id="services">
+        <div className="bg-gradient-to-b from-white to-wine-50" id="services">
           <ServicesSection />
         </div>
-        <div className="bg-scarlet-50" id="about">
+        <div className="bg-wine-50" id="about">
           <AboutSection />
         </div>
-        <div className="bg-white" id="team">
+        <div className="bg-gradient-to-b from-wine-50 to-white" id="team">
           <TeamSection />
         </div>
-        <div className="bg-scarlet-50" id="plans">
+        <div className="bg-wine-50" id="plans">
           <PlansSection />
         </div>
         <div className="bg-white" id="testimonials">
           <TestimonialsSection />
         </div>
-        <div className="bg-scarlet-50" id="contact">
+        <div className="bg-wine-50" id="contact">
           <ContactForm />
         </div>
       </main>

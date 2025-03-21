@@ -10,18 +10,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-scarlet-700 text-white hover:bg-scarlet-800", // Primary color (60%)
+        default: "bg-wine-700 text-white hover:bg-wine-800", // Primary color (60%)
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-scarlet-300 bg-background hover:bg-scarlet-50 hover:text-scarlet-700", // Secondary color (30%)
+          "border border-wine-300 bg-background hover:bg-wine-50 hover:text-wine-700", // Secondary color (30%)
         secondary:
-          "bg-scarlet-100 text-scarlet-700 hover:bg-scarlet-200", // Secondary color (30%)
-        ghost: "hover:bg-scarlet-50 hover:text-scarlet-700", // Secondary interaction
-        link: "text-scarlet-700 underline-offset-4 hover:underline", // Accent color (10%)
-        scarlet: "bg-scarlet-600 text-white hover:bg-scarlet-700", // Primary variant
-        outlineScarlet: "border border-scarlet-600 text-scarlet-600 hover:bg-scarlet-50", // Secondary variant
-        contrast: "bg-yellow-600 text-white hover:bg-yellow-700", // Contrast color (10%)
+          "bg-wine-100 text-wine-700 hover:bg-wine-200", // Secondary color (30%)
+        ghost: "hover:bg-wine-50 hover:text-wine-700", // Secondary interaction
+        link: "text-wine-700 underline-offset-4 hover:underline", // Accent color (10%)
+        wine: "bg-wine-600 text-white hover:bg-wine-700", // Primary variant
+        outlineWine: "border border-wine-600 text-wine-600 hover:bg-wine-50", // Secondary variant
+        contrast: "bg-amber-600 text-white hover:bg-amber-700", // Contrast color (10%)
       },
       size: {
         default: "h-10 px-4 py-2",

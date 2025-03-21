@@ -6,47 +6,47 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 342 13% 22%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 342 13% 22%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 0 73.7% 41.8%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 0 42.8% 93.8%;
-    --secondary-foreground: 0 73.7% 41.8%;
-    --muted: 0 42.8% 93.8%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 0 42.8% 93.8%;
-    --accent-foreground: 0 73.7% 41.8%;
+    --popover-foreground: 342 13% 22%;
+    --primary: 342 25% 37%;
+    --primary-foreground: 355 100% 97%;
+    --secondary: 342 12% 93%;
+    --secondary-foreground: 342 25% 37%;
+    --muted: 342 12% 93%;
+    --muted-foreground: 342 5% 46%;
+    --accent: 342 12% 93%;
+    --accent-foreground: 342 25% 37%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 0 73.7% 41.8%;
-    --radius: 0.5rem;
+    --destructive-foreground: 355 100% 97%;
+    --border: 342 12% 90%;
+    --input: 342 12% 90%;
+    --ring: 342 25% 37%;
+    --radius: 0.75rem;
   }
  
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 0 73.7% 41.8%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 342 30% 10%;
+    --foreground: 355 10% 92%;
+    --card: 342 30% 10%;
+    --card-foreground: 355 10% 92%;
+    --popover: 342 30% 10%;
+    --popover-foreground: 355 10% 92%;
+    --primary: 342 50% 40%;
+    --primary-foreground: 355 10% 92%;
+    --secondary: 342 16% 16%;
+    --secondary-foreground: 355 10% 92%;
+    --muted: 342 16% 16%;
+    --muted-foreground: 342 9% 64%;
+    --accent: 342 16% 16%;
+    --accent-foreground: 355 10% 92%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 0 73.7% 41.8%;
+    --destructive-foreground: 355 10% 92%;
+    --border: 342 16% 16%;
+    --input: 342 16% 16%;
+    --ring: 342 50% 40%;
   }
 }
 
@@ -82,15 +82,15 @@
   }
   
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-scarlet-700 to-scarlet-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-wine-700 to-wine-500;
   }
   
   .button-primary {
-    @apply inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 rounded-lg bg-scarlet-700 text-white font-medium hover:bg-scarlet-800 transition-colors;
+    @apply inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 rounded-lg bg-wine-700 text-white font-medium hover:bg-wine-800 transition-colors;
   }
   
   .button-secondary {
-    @apply inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 rounded-lg bg-white text-scarlet-700 font-medium border border-scarlet-200 hover:bg-scarlet-50 transition-colors;
+    @apply inline-flex items-center justify-center px-4 md:px-6 py-2 md:py-3 rounded-lg bg-white text-wine-700 font-medium border border-wine-200 hover:bg-wine-50 transition-colors;
   }
 
   .glass-card {
@@ -98,11 +98,11 @@
   }
 
   .card-hover {
-    @apply hover:border-scarlet-200 hover:translate-y-[-2px] transition-all duration-300;
+    @apply hover:border-wine-200 hover:translate-y-[-2px] transition-all duration-300;
   }
 
   .button-text {
-    @apply text-scarlet-700 font-medium hover:text-scarlet-800 transition-colors;
+    @apply text-wine-700 font-medium hover:text-wine-800 transition-colors;
   }
 
   .section-padding {
