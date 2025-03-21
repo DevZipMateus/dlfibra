@@ -12,9 +12,9 @@ import FloatingButton from "@/components/FloatingButton";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white w-full overflow-x-hidden">
       <Header />
-      <main className="space-y-0">
+      <main className="w-full">
         <HeroSection />
         <ServicesSection />
         <AboutSection />
