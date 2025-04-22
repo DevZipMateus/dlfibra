@@ -56,6 +56,18 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        wine: {
+          50: '#faf5f5',
+          100: '#f5e6e6',
+          200: '#e6c2c2',
+          300: '#d69e9e',
+          400: '#c67a7a',
+          500: '#b85656',
+          600: '#a94242',
+          700: '#9b2d2d',
+          800: '#8c1a1a',
+          900: '#7d0a0a'
+        },
       },
       keyframes: {
         fadeIn: {
