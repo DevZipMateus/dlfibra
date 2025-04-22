@@ -1,44 +1,22 @@
 
-import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
-import AboutSection from "@/components/AboutSection";
-import TeamSection from "@/components/TeamSection";
-import PlansSection from "@/components/PlansSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactForm from "@/components/ContactForm";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import FloatingButton from "@/components/FloatingButton";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import ContactSection from "@/components/ContactSection";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white w-full overflow-x-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden">
       <Header />
-      <main className="w-full">
-        <div id="hero">
-          <HeroSection />
-        </div>
-        <div className="bg-gradient-to-b from-white to-wine-50" id="services">
-          <ServicesSection />
-        </div>
-        <div className="bg-wine-50" id="about">
-          <AboutSection />
-        </div>
-        <div className="bg-gradient-to-b from-wine-50 to-white" id="team">
-          <TeamSection />
-        </div>
-        <div className="bg-wine-50" id="plans">
-          <PlansSection />
-        </div>
-        <div className="bg-white" id="testimonials">
-          <TestimonialsSection />
-        </div>
-        <div className="bg-wine-50" id="contact">
-          <ContactForm />
-        </div>
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <ServicesSection />
+        <ContactSection />
       </main>
-      <Footer />
-      <FloatingButton />
+      <WhatsAppButton />
     </div>
   );
 };
