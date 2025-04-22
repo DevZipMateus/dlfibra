@@ -1,9 +1,8 @@
-
-import { WaveSine, Factory, Droplet, Container, Wrench } from 'lucide-react';
+import { WavesIcon, Factory, Droplet, Container, Wrench } from 'lucide-react';
 
 const services = [
   {
-    icon: WaveSine,
+    icon: WavesIcon,
     title: "Estações de Tratamento",
     description: "Soluções completas para tratamento de esgoto e efluentes industriais",
   },

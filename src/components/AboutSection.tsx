@@ -1,5 +1,4 @@
-
-import { Check, Droplet, Factory, Wrench, WaveSine } from 'lucide-react';
+import { Check, Droplet, Factory, Wrench, WavesIcon } from 'lucide-react';
 
 const features = [
   {
@@ -8,7 +7,7 @@ const features = [
     description: "Tanques em fibra de vidro com alta durabilidade",
   },
   {
-    icon: WaveSine,
+    icon: WavesIcon,
     title: "Tratamento de Esgoto",
     description: "Estações de tratamento eficientes",
   },
