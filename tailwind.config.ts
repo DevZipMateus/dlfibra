@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss"
 
 const config = {
@@ -71,6 +70,9 @@ const config = {
       animation: {
         fadeIn: 'fadeIn 1s ease-out',
         slideUp: 'slideUp 0.5s ease-out',
+      },
+      fontFamily: {
+        display: ['Inter', 'system-ui', 'sans-serif'],
       },
     },
   },
