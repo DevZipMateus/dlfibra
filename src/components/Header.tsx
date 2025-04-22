@@ -24,7 +24,7 @@ const Header = () => {
           <a href="#" className="flex items-center">
             <img src="/lovable-uploads/ac5030d4-3ef3-4a12-af84-1e8720595b64.png" 
                  alt="DL FIBRAS Logo" 
-                 className="h-12 md:h-16 w-auto" />
+                 className="h-16 md:h-20 w-auto" />
           </a>
 
           <nav className={`fixed md:relative top-0 ${
@@ -76,3 +76,4 @@ const Header = () => {
 };
 
 export default Header;
+
