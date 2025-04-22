@@ -1,5 +1,5 @@
 
-import { Check, Droplet, Factory, Tool, WaterDrop } from 'lucide-react';
+import { Check, Droplet, Factory, Wrench, WaveSine } from 'lucide-react';
 
 const features = [
   {
@@ -8,7 +8,7 @@ const features = [
     description: "Tanques em fibra de vidro com alta durabilidade",
   },
   {
-    icon: WaterDrop,
+    icon: WaveSine,
     title: "Tratamento de Esgoto",
     description: "Estações de tratamento eficientes",
   },
@@ -18,7 +18,7 @@ const features = [
     description: "Soluções específicas para sua indústria",
   },
   {
-    icon: Tool,
+    icon: Wrench,
     title: "Peças Sob Medida",
     description: "Projetos personalizados em fibra de vidro",
   },

@@ -1,9 +1,9 @@
 
-import { Water, Factory, Droplet, Pool, Tool } from 'lucide-react';
+import { WaveSine, Factory, Droplet, Container, Wrench } from 'lucide-react';
 
 const services = [
   {
-    icon: Water,
+    icon: WaveSine,
     title: "Estações de Tratamento",
     description: "Soluções completas para tratamento de esgoto e efluentes industriais",
   },
@@ -18,12 +18,12 @@ const services = [
     description: "Reservatórios e tanques para armazenamento de água",
   },
   {
-    icon: Pool,
+    icon: Container,
     title: "Piscinas em Fibra",
     description: "Piscinas personalizadas em fibra de vidro",
   },
   {
-    icon: Tool,
+    icon: Wrench,
     title: "Peças sob Medida",
     description: "Desenvolvimento de peças especiais em fibra de vidro",
   },
