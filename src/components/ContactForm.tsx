@@ -29,7 +29,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h4 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">Telefone</h4>
-                  <p className="text-base md:text-lg text-gray-600">(19) 22277-2522</p>
+                  <p className="text-base md:text-lg text-gray-600">(19)2227-7252</p>
                   <p className="text-base md:text-lg text-gray-600">(19) 98763-9094</p>
                 </div>
               </div>
@@ -51,7 +51,7 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h4 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">WhatsApp</h4>
-                  <p className="text-base md:text-lg text-gray-600">(19) 22277-2522</p>
+                  <p className="text-base md:text-lg text-gray-600">(19)2227-7252</p>
                   <p className="text-base md:text-lg text-gray-600 mb-2">Atendimento rápido para dúvidas e agendamentos</p>
                   <a 
                     href="https://wa.me/5519222772522?text=Olá,%20gostaria%20de%20mais%20informações" 
