@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -167,6 +166,27 @@ const ProjectsGallery = () => {
   const [videoThumbnails, setVideoThumbnails] = useState<{[key: number]: string}>({});
   const isMobile = useMobile(768);
   
+  // Listen for custom tab switching event
+  useEffect(() => {
+    const handleTabSwitch = (event: CustomEvent<{ tabId: string }>) => {
+      const { tabId } = event.detail;
+      console.log(`Received tab switch event for: ${tabId}`);
+      
+      if (tabId === 'estacao' || tabId === 'tanques' || tabId === 'reservatorio') {
+        setActiveTab(tabId);
+        console.log(`Switched to tab: ${tabId}`);
+      }
+    };
+
+    // Add event listener
+    document.addEventListener('switchProjectTab', handleTabSwitch as EventListener);
+
+    // Cleanup
+    return () => {
+      document.removeEventListener('switchProjectTab', handleTabSwitch as EventListener);
+    };
+  }, []);
+
   useEffect(() => {
     // Generate thumbnails for videos
     projects.forEach(project => {

@@ -1,6 +1,15 @@
 
 import { WavesIcon, Factory, Droplet, Container, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+
+// Create a custom event for tab switching
+const createTabSwitchEvent = (tabId: string) => {
+  return new CustomEvent('switchProjectTab', { 
+    detail: { tabId },
+    bubbles: true 
+  });
+};
 
 const services = [
   {
@@ -43,26 +52,12 @@ const ServicesSection = () => {
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: 'smooth' });
       
-      // Then try to activate the correct tab
+      // Dispatch custom event after scrolling completes
       setTimeout(() => {
-        // Find and directly manipulate the Tabs component
-        const tabsRoot = document.querySelector('#projetos [role="tablist"]');
-        if (tabsRoot) {
-          // Find all tab buttons
-          const buttons = tabsRoot.querySelectorAll('[role="tab"]');
-          
-          // Loop through all buttons to find the one with matching value
-          buttons.forEach((button) => {
-            if (button instanceof HTMLElement && button.getAttribute('data-value') === tabId) {
-              // Click the correct tab
-              button.click();
-              console.log(`Activating tab: ${tabId}`);
-            }
-          });
-        } else {
-          console.log('Tabs container not found');
-        }
-      }, 800); // Give it more time to ensure DOM is fully loaded
+        // Dispatch the custom event for tab switching
+        document.dispatchEvent(createTabSwitchEvent(tabId));
+        console.log(`Dispatched event to switch to tab: ${tabId}`);
+      }, 1000); // Give more time for scrolling to complete
     }
   };
 
