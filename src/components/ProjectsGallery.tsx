@@ -7,44 +7,44 @@ const projects = [
   {
     id: 1,
     image: "/lovable-uploads/9be7e63f-cc33-445c-9c85-65ab6c00e674.png",
-    title: "Caixa D'água Torre",
-    location: "Mogi Guaçu - SP"
+    title: "Caixa da água tipo taça",
+    location: ""
   },
   {
     id: 2,
     image: "/lovable-uploads/f4ac85dd-95a7-4f28-986b-d08888fd8b1c.png",
-    title: "Tanques de Galvanoplastia",
-    location: "Campinas - SP"
+    title: "Linha de verniz cataforético",
+    location: ""
   },
   {
     id: 3,
     image: "/lovable-uploads/236aef35-f35f-460a-bd32-da54e02f579d.png",
     title: "Estação de Tratamento Industrial",
-    location: "Rio Claro - SP"
+    location: "Borborema - SP"
   },
   {
     id: 4,
     image: "/lovable-uploads/fae716f4-d839-480b-b857-aeba36e6a5e5.png",
-    title: "Tanques de Tratamento de Efluentes",
-    location: "Paulínia - SP"
+    title: "Tanques de Tratamento Industrial",
+    location: "Borborema - SP"
   },
   {
     id: 5,
     image: "/lovable-uploads/c99da902-ee39-4584-8524-f043daa13668.png",
     title: "Tanque Cilíndrico Horizontal",
-    location: "Limeira - SP"
+    location: ""
   },
   {
     id: 6,
     image: "/lovable-uploads/c3cd6bd0-0919-4aa0-85a6-55f5741f4372.png",
-    title: "Sistema de Tratamento Múltiplo",
-    location: "Americana - SP"
+    title: "Estação de Tratamento Industrial",
+    location: "Borborema - SP"
   },
   {
     id: 7,
     image: "/lovable-uploads/a67a2f0e-854f-4b6a-b6ed-1bb143040f68.png",
-    title: "Tanques para Processos Químicos",
-    location: "Sumaré - SP"
+    title: "Tanques de Galvanoplastia",
+    location: ""
   }
 ];
 
