@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -45,6 +44,12 @@ const projects = [
     image: "/lovable-uploads/a67a2f0e-854f-4b6a-b6ed-1bb143040f68.png",
     title: "Tanques de Galvanoplastia",
     location: ""
+  },
+  {
+    id: 8,
+    image: "/lovable-uploads/1116537a-9adb-4b22-ad5c-36990246e5e2.png",
+    title: "Estação de Tratamento",
+    location: "Florianópolis - SC"
   }
 ];
 
