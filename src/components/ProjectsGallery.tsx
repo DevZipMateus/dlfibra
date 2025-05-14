@@ -1,8 +1,9 @@
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useMobile } from "@/hooks/use-mobile";
 
 type ProjectType = {
   id: number;
@@ -163,6 +164,45 @@ const projects: ProjectType[] = [
 const ProjectsGallery = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState("estacao");
+  const [videoThumbnails, setVideoThumbnails] = useState<{[key: number]: string}>({});
+  const isMobile = useMobile(768);
+  
+  useEffect(() => {
+    // Generate thumbnails for videos
+    projects.forEach(project => {
+      if (project.type === 'video') {
+        generateVideoThumbnail(project.id, project.image);
+      }
+    });
+  }, []);
+
+  const generateVideoThumbnail = (projectId: number, videoUrl: string) => {
+    const video = document.createElement('video');
+    video.src = videoUrl;
+    video.crossOrigin = 'anonymous';
+    video.muted = true;
+    video.currentTime = 1; // Seek to 1 second
+    
+    video.onloadeddata = () => {
+      video.play();
+      setTimeout(() => {
+        video.pause();
+        // Create a canvas and draw the current video frame
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const ctx = canvas.getContext('2d');
+        ctx?.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        // Get the thumbnail as data URL
+        const thumbnailUrl = canvas.toDataURL('image/jpeg');
+        setVideoThumbnails(prev => ({
+          ...prev,
+          [projectId]: thumbnailUrl
+        }));
+      }, 500);
+    };
+  };
 
   const openModal = (projectId: number) => {
     setSelectedProject(projectId);
@@ -189,7 +229,7 @@ const ProjectsGallery = () => {
 
   return (
     <section id="projetos" className="py-16 bg-blue-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-blue-100 text-dlblue mb-2">
             Nossos Projetos
@@ -204,7 +244,7 @@ const ProjectsGallery = () => {
 
         <Tabs defaultValue="estacao" className="w-full" value={activeTab} onValueChange={setActiveTab}>
           <div className="flex justify-center mb-8">
-            <TabsList className="bg-blue-100/70 p-1">
+            <TabsList className="bg-blue-100/70 p-1 flex flex-wrap justify-center">
               <TabsTrigger 
                 value="estacao" 
                 className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-3 py-2 text-sm md:text-base"
@@ -235,7 +275,7 @@ const ProjectsGallery = () => {
               </div>
 
               <div className="hidden md:block">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {filteredProjects.map((project) => (
                     <div
                       key={project.id}
@@ -252,6 +292,17 @@ const ProjectsGallery = () => {
                             />
                           ) : (
                             <div className="relative w-full h-full">
+                              {videoThumbnails[project.id] ? (
+                                <img 
+                                  src={videoThumbnails[project.id]} 
+                                  alt={project.title}
+                                  className="w-full h-full object-cover"
+                                />
+                              ) : (
+                                <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
+                                  <span className="text-gray-500">Carregando...</span>
+                                </div>
+                              )}
                               <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -291,6 +342,17 @@ const ProjectsGallery = () => {
                               />
                             ) : (
                               <div className="relative w-full h-full">
+                                {videoThumbnails[project.id] ? (
+                                  <img 
+                                    src={videoThumbnails[project.id]} 
+                                    alt={project.title}
+                                    className="w-full h-full object-cover"
+                                  />
+                                ) : (
+                                  <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
+                                    <span className="text-gray-500">Carregando...</span>
+                                  </div>
+                                )}
                                 <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                                   <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
@@ -320,7 +382,7 @@ const ProjectsGallery = () => {
 
         {selectedProject && (
           <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" onClick={closeModal}>
-            <div className="relative max-w-4xl w-full max-h-[90vh] bg-white rounded-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
+            <div className="relative max-w-5xl w-full max-h-[90vh] bg-white rounded-lg overflow-hidden" onClick={(e) => e.stopPropagation()}>
               <button 
                 onClick={closeModal}
                 className="absolute top-3 right-3 z-10 bg-white/80 rounded-full p-1 text-gray-800 hover:bg-white"
@@ -333,7 +395,7 @@ const ProjectsGallery = () => {
               {projects.find(p => p.id === selectedProject) && (
                 <>
                   {projects.find(p => p.id === selectedProject)?.type === 'image' ? (
-                    <div className="h-96">
+                    <div className="h-[70vh]">
                       <img 
                         src={projects.find(p => p.id === selectedProject)?.image} 
                         alt={projects.find(p => p.id === selectedProject)?.title} 
@@ -341,7 +403,7 @@ const ProjectsGallery = () => {
                       />
                     </div>
                   ) : (
-                    <div className="h-96 w-full">
+                    <div className="h-[70vh] w-full">
                       <video 
                         src={projects.find(p => p.id === selectedProject)?.image} 
                         controls

@@ -1,3 +1,4 @@
+
 import { WavesIcon, Factory, Droplet, Container, Wrench } from 'lucide-react';
 
 const services = [
@@ -31,29 +32,29 @@ const services = [
 const ServicesSection = () => {
   return (
     <section id="servicos" className="py-16 bg-blue-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-screen-xl">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-dlblue mb-6">
             Nossos Serviços
           </h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-lg md:text-xl">
             Oferecemos soluções completas em fibra de vidro para sua empresa
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
               className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
                 <service.icon className="w-6 h-6 text-dlblue" />
               </div>
-              <h3 className="text-xl font-semibold text-dlblue mb-3">
+              <h3 className="text-xl font-semibold text-dlblue mb-3 text-center md:text-left">
                 {service.title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-center md:text-left">
                 {service.description}
               </p>
             </div>

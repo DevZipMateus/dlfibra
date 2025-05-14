@@ -61,6 +61,20 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
   }
+  
+  @media (min-width: 1920px) {
+    .container {
+      max-width: 1600px;
+    }
+    
+    h1 {
+      @apply text-5xl;
+    }
+    
+    h2 {
+      @apply text-4xl;
+    }
+  }
 }
 
 @layer components {
@@ -202,7 +216,7 @@
 
 /* Modify app CSS to remove some default padding */
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0;
   text-align: center;
@@ -242,4 +256,19 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Additional Full HD optimizations */
+@media (min-width: 1920px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .max-w-screen-xl {
+    max-width: 1600px;
+  }
+  
+  .section-padding {
+    @apply py-10 md:py-16;
+  }
 }

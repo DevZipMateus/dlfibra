@@ -1,24 +1,29 @@
+
 import { useEffect, useState } from 'react';
 import { Phone } from 'lucide-react';
+
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  return <section id="home" className="pt-28 md:pt-32 pb-16 bg-[#e8f8ff]">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col-reverse md:flex-row items-center max-w-4xl mx-auto">
-          <div className="w-full md:w-1/2 text-center md:text-left pr-0 md:pr-8">
+  
+  return (
+    <section id="home" className="pt-28 md:pt-32 lg:pt-36 pb-16 bg-[#e8f8ff]">
+      <div className="container mx-auto px-4 max-w-screen-xl">
+        <div className="flex flex-col-reverse md:flex-row items-center max-w-6xl mx-auto">
+          <div className="w-full md:w-1/2 text-center md:text-left pr-0 md:pr-8 lg:pr-12">
             <div className={`mb-8 transform transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               
             </div>
             
-            <h1 className={`text-3xl md:text-5xl font-bold text-dlblue mb-6 transform transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <h1 className={`text-3xl md:text-5xl lg:text-6xl font-bold text-dlblue mb-6 transform transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Mais que tanques, <br />
               <span className="text-dlblue-light">soluções inteligentes!</span>
             </h1>
             
-            <p className={`text-lg md:text-xl text-gray-600 mb-8 transform transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <p className={`text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 transform transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               Especialistas em soluções de fibra de vidro para sua empresa
             </p>
             
@@ -29,10 +34,16 @@ const HeroSection = () => {
           </div>
           
           <div className="w-full md:w-1/2 mb-8 md:mb-0">
-            <img src="/lovable-uploads/ac5030d4-3ef3-4a12-af84-1e8720595b64.png" alt="DL FIBRAS Logo" className="w-full max-w-md mx-auto" />
+            <img 
+              src="/lovable-uploads/ac5030d4-3ef3-4a12-af84-1e8720595b64.png" 
+              alt="DL FIBRAS Logo" 
+              className="w-full max-w-md lg:max-w-lg xl:max-w-xl mx-auto"
+            />
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;
