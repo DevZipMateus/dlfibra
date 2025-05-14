@@ -1,8 +1,10 @@
+
 import { useState, useRef, useEffect } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useMobile } from "@/hooks/use-mobile";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 type ProjectType = {
   id: number;
@@ -232,6 +234,26 @@ const ProjectsGallery = () => {
     setSelectedProject(null);
   };
 
+  const navigateToNextProject = () => {
+    if (selectedProject === null) return;
+    
+    const filteredProjects = projects.filter(project => project.category === activeTab);
+    const currentIndex = filteredProjects.findIndex(project => project.id === selectedProject);
+    const nextIndex = (currentIndex + 1) % filteredProjects.length;
+    
+    setSelectedProject(filteredProjects[nextIndex].id);
+  };
+
+  const navigateToPreviousProject = () => {
+    if (selectedProject === null) return;
+    
+    const filteredProjects = projects.filter(project => project.category === activeTab);
+    const currentIndex = filteredProjects.findIndex(project => project.id === selectedProject);
+    const previousIndex = (currentIndex - 1 + filteredProjects.length) % filteredProjects.length;
+    
+    setSelectedProject(filteredProjects[previousIndex].id);
+  };
+
   const getCategoryTitle = (categoryId: string) => {
     switch (categoryId) {
       case "estacao":
@@ -413,6 +435,29 @@ const ProjectsGallery = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
+              </button>
+              
+              {/* Navigation Arrows */}
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigateToPreviousProject();
+                }}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 rounded-full p-3 text-gray-800 hover:bg-white shadow-lg"
+                aria-label="Projeto anterior"
+              >
+                <ArrowLeft className="h-6 w-6" />
+              </button>
+              
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigateToNextProject();
+                }}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 rounded-full p-3 text-gray-800 hover:bg-white shadow-lg"
+                aria-label="Próximo projeto"
+              >
+                <ArrowRight className="h-6 w-6" />
               </button>
               
               {projects.find(p => p.id === selectedProject) && (
