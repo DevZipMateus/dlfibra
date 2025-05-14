@@ -29,8 +29,8 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h4 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">Telefone</h4>
-                  <p className="text-base md:text-lg text-gray-600">(11) 4002-8922</p>
-                  <p className="text-base md:text-lg text-gray-600">(11) 98765-4321</p>
+                  <p className="text-base md:text-lg text-gray-600">(19) 22277-2522</p>
+                  <p className="text-base md:text-lg text-gray-600">(19) 98763-9094</p>
                 </div>
               </div>
               
@@ -51,10 +51,10 @@ const ContactForm = () => {
                 </div>
                 <div>
                   <h4 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">WhatsApp</h4>
-                  <p className="text-base md:text-lg text-gray-600">(11) 98765-4321</p>
+                  <p className="text-base md:text-lg text-gray-600">(19) 22277-2522</p>
                   <p className="text-base md:text-lg text-gray-600 mb-2">Atendimento rápido para dúvidas e agendamentos</p>
                   <a 
-                    href="https://wa.me/551199999999?text=Olá,%20gostaria%20de%20mais%20informações" 
+                    href="https://wa.me/5519222772522?text=Olá,%20gostaria%20de%20mais%20informações" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="button-primary inline-flex items-center justify-center w-full md:w-auto"
