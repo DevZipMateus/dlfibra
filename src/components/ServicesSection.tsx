@@ -45,12 +45,24 @@ const ServicesSection = () => {
       
       // Then try to activate the correct tab
       setTimeout(() => {
-        // Find the tab button and click it
-        const tabButton = document.querySelector(`[data-value="${tabId}"]`);
-        if (tabButton && tabButton instanceof HTMLElement) {
-          tabButton.click();
+        // Find and directly manipulate the Tabs component
+        const tabsRoot = document.querySelector('#projetos [role="tablist"]');
+        if (tabsRoot) {
+          // Find all tab buttons
+          const buttons = tabsRoot.querySelectorAll('[role="tab"]');
+          
+          // Loop through all buttons to find the one with matching value
+          buttons.forEach((button) => {
+            if (button instanceof HTMLElement && button.getAttribute('data-value') === tabId) {
+              // Click the correct tab
+              button.click();
+              console.log(`Activating tab: ${tabId}`);
+            }
+          });
+        } else {
+          console.log('Tabs container not found');
         }
-      }, 500); // Give it time to scroll first
+      }, 800); // Give it more time to ensure DOM is fully loaded
     }
   };
 
