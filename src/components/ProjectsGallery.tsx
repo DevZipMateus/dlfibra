@@ -215,11 +215,11 @@ const ProjectsGallery = () => {
   const getCategoryTitle = (categoryId: string) => {
     switch (categoryId) {
       case "estacao":
-        return "ESTAÇÃO DE TRATAMENTO EM PRFV FIBRA DE VIDRO E POLIPROPILENO (PP)";
+        return "ESTAÇÃO DE TRATAMENTO";
       case "tanques":
-        return "TANQUES DE POLIPROPILENO (PP) PARA GALVANOPLASTIA";
+        return "TANQUES PARA GALVANOPLASTIA";
       case "reservatorio":
-        return "RESERVATÓRIO DE ÁGUA EM PRFV FIBRA DE VIDRO";
+        return "RESERVATÓRIO DE ÁGUA";
       default:
         return "";
     }
@@ -244,22 +244,22 @@ const ProjectsGallery = () => {
 
         <Tabs defaultValue="estacao" className="w-full" value={activeTab} onValueChange={setActiveTab}>
           <div className="flex justify-center mb-8">
-            <TabsList className="bg-blue-100/70 p-1 flex flex-wrap justify-center">
+            <TabsList className="bg-blue-100/70 p-1 flex flex-wrap justify-center gap-2 w-full max-w-lg">
               <TabsTrigger 
                 value="estacao" 
-                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-3 py-2 text-sm md:text-base"
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-3 py-2 text-xs md:text-sm text-center flex-1 min-w-[120px]"
               >
                 Estações de Tratamento
               </TabsTrigger>
               <TabsTrigger 
                 value="tanques" 
-                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-3 py-2 text-sm md:text-base"
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-3 py-2 text-xs md:text-sm text-center flex-1 min-w-[120px]"
               >
                 Tanques para Galvanoplastia
               </TabsTrigger>
               <TabsTrigger 
                 value="reservatorio" 
-                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-3 py-2 text-sm md:text-base"
+                className="data-[state=active]:bg-blue-600 data-[state=active]:text-white px-3 py-2 text-xs md:text-sm text-center flex-1 min-w-[120px]"
               >
                 Reservatórios de Água
               </TabsTrigger>
@@ -271,6 +271,9 @@ const ProjectsGallery = () => {
               <div className="text-center mb-6">
                 <h3 className="text-xl md:text-2xl font-bold text-gray-800">
                   {getCategoryTitle(category)}
+                  {category === "estacao" && <span className="hidden md:inline"> EM PRFV FIBRA DE VIDRO E POLIPROPILENO (PP)</span>}
+                  {category === "tanques" && <span className="hidden md:inline"> DE POLIPROPILENO (PP)</span>}
+                  {category === "reservatorio" && <span className="hidden md:inline"> EM PRFV FIBRA DE VIDRO</span>}
                 </h3>
               </div>
 
