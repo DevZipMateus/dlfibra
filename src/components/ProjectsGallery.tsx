@@ -92,7 +92,7 @@ const projects: ProjectType[] = [
     title: "Tanques de Tratamento Industrial",
     location: "Borborema - SP",
     type: 'image',
-    category: 'tanques'
+    category: 'estacao'
   },
   {
     id: 11,
@@ -100,7 +100,7 @@ const projects: ProjectType[] = [
     title: "Tanque Cilíndrico Horizontal",
     location: "",
     type: 'image',
-    category: 'tanques'
+    category: 'estacao'
   },
   {
     id: 12,
