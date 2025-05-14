@@ -24,10 +24,10 @@ const HeroSection = () => {
             </h1>
             
             <p className={`text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 transform transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              Especialistas em soluções de fibra de vidro para sua empresa
+              Especialistas em soluções de fibra de vidro e Polipropileno para sua empresa
             </p>
             
-            <a href="https://wa.me/5519987639094?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-full text-lg font-semibold transition-all transform hover:scale-105 duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <a href="https://wa.me/551922277252?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento" target="_blank" rel="noopener noreferrer" className={`inline-flex items-center px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-full text-lg font-semibold transition-all transform hover:scale-105 duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <Phone className="w-5 h-5 mr-2" />
               Solicite um orçamento
             </a>
